@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html class="no-js">
+<%= render 'head' %>
+<body>
+  <div id="page-wrapper">
+    <%= render 'navbar' %>
+  
+      <%= yield %>
+ 
+    <%= render 'footer' %>
+  </div>
+  <div id="project-page">
+    <!-- START PROJECT-TOP-BAR -->
+    <div id="project-top-bar">
+      <div class="row">
+        <div class="col-xs-2">
+          <div id="previous-project"><%= image_tag("cur_prev.gif") %></div>
+          <div id="previous-project-name"><h2 id="project-title">Title 2</h2></div>
+        </div>
+        <div class="col-xs-8">
+          <div id="close-project">
+          <%= image_tag("cursor_close.gif") %>
+          </div>
+        </div>
+        <div class="col-xs-2">
+          <div id="next-project"><%= image_tag("cur_next.gif") %></div>
+          <div id="next-project-name"><h2 id="project-title">Title 4</h2></div>
+        </div>
+      </div>
+    </div>	
+    <!-- END PROJECT-TOP-BAR -->
+    <!-- START PROJECT -->
+    <div id="project-content"></div>
+    <!-- END PROJECT -->
+  </div>
+   
+  <script src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js' ></script>
+  <script src='//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js'></script>
+  <%= render 'javascripts' %> 
+</body>  
+</html>

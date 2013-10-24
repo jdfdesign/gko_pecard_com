@@ -1,0 +1,5 @@
+<%= image_tag(record.thumbnail.thumbnail.black_and_white("1200x800#").url(), 
+  :alt => record.thumbnail.title,
+  :class => 'img-responsive' ) if record.thumbnail %>
+<h4><%= record.title %></h4>
+<%= raw(record.body) %>

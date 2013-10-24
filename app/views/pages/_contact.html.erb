@@ -1,0 +1,65 @@
+<% if local_assigns.has_key? :record %>
+<section id="<%= dom_id(record) %>_page" class="section contact-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 intro">
+        <h2 class="page-title text-center"><%= record.title %></h2> 
+        <%= render_copy_text(record.body, :class => 'text-center') %> 
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+        <form id="contact-form" action="/inquiries" method="post" data-remote="true">
+           <input type="text" name="inquiry[ghost]" id="inquiry_ghost" value="" class="form-control hide"> 
+          <div class="row">	
+            <div class="col-xs-12 form-group">
+              <input type="text" name="inquiry[name]" id="inquiry_name" value="" class="form-control required" placeholder="<%= t('simple_form.labels.inquiry.name') %>">
+            </div>
+            <div class="col-xs-12 form-group">
+              <input type="text" name="inquiry[email]" id="inquiry_email" value="" class="form-control required email" placeholder="<%= t('simple_form.labels.inquiry.email') %>">
+            </div>
+            <div class="col-xs-12 form-group">
+              <textarea name="inquiry[message]" id="inquiry_message" rows="20" cols="30" class="form-control required" placeholder="<%= t('simple_form.labels.inquiry.message') %>"></textarea>
+            </div>
+            <div class="col-xs-12 form-group">
+              <input type="hidden" name="submitted" id="submitted" class="button" value="SEND"><button id="submit" class="btn btn-primary btn-block" type="submit"><%= t("gko.inquiry_submit") %></button>
+            </div>
+            <div class="col-xs-12 form-group">
+              <p id="error" data-alert="" class="alert"><%= t("gko.inquiry_error") %></p>
+              <p id="thanks" data-alert="" class="alert alert-success"><%= t("gko.inquiry_thanks") %></p>
+              <p id="timedout" data-alert="" class="alert"><%= t("gko.inquiry_connection_time_out") %></p>
+              <p id="state" data-alert="" class="alert"></p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+    		<div class="col-xs-12 col-sm-6 col-sm-offset-3">
+    			<div class="contact-info">
+    				<div class="row">
+              <div class="col-sm-4 contact">
+    							<div class="icon">
+    								<a><i class="icon-envelope icon-3x"></i></a>	
+    							</div>
+    							<p>info@oscar-car-rental-stbarth.com</p>
+    						</div>
+                <div class="col-sm-4 contact">
+    							<div class="icon">
+    								<a href="https://www.google.pt/maps?q=Rua+Mo%C3%A7ambique&amp;ie=UTF8&amp;sll=38.726196600000044,-9.133097900000031&amp;sspn=0.0058754924303444445,0.013732356659095496&amp;t=m&amp;hnear=Rua+Mo%C3%A7ambique,+Coimbra&amp;z=16" target="_blank"><i class="icon-map-marker icon-3x"></i></a>	
+    							</div>
+    							<p>Parking<br>Oscar Car Rental<br>Gustavia<br>97133&nbsp;Saint-Barthelemy</p>
+    						</div>
+                <div class="col-sm-4 contact">
+    							<div class="icon">
+    								<a><i class="icon-phone icon-3x"></i></a>	
+    							</div>
+    							<p>333 333 333</p>
+    						</div>
+              </div>
+    			</div>
+    		</div>
+    	</div> 
+  </div>  
+</section>
+<% end %>

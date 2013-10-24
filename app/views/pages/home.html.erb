@@ -1,0 +1,122 @@
+<% homepage = current_site.sections.find_by_name("primary_menu") %>
+<% portfolio = current_site.sections.find_by_name("portfolio") %>
+<% team = current_site.sections.find_by_name("team") %>
+<!-- START CAROUSEL -->
+<!-- START HEADER -->
+<section id="header" class="section intro-section-title section-padding" data-bg="<%= homepage.thumbnail.thumbnail.black_and_white("1200x800#").url() if homepage.thumbnail %>">
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <div id="intro" class="text-container">
+        <%= image_tag("logo.png", :id => "logo") %>
+        <div class="share clearfix">
+          <h3 class="clearfix">
+            <span class="line pull-left"></span>
+            <span class="title">Partager</span>
+            <span class="line pull-right"></span>
+          </h3>
+          <ul class="nav clearfix">
+            <li><a href="#facebook"><i class="icon-facebook icon-white"></i></a></li>
+            <li><a href="#twitter"><i class="icon-twitter icon-white"></i></a></li>
+            <li><a href="#linkedin"><i class="icon-linkedin icon-white"></i></a></li>
+            <li><a href="#google"><i class="icon-google-plus icon-white"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END HEADER -->
+<!-- START LATEST PROJECTS -->
+<section class="section-title-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h3 class="section-title text-center">Projets en cours et récents</h3>
+        <p class="section-desc text-center">Plus de 30 ans d’expérience, plus de 200 projets d'architecture à St.Barth à notre actif.</p>
+        <p class="section-links text-center"><%= link_to("Tout voir", portfolio.public_url, :class => "view-all") %></p> 
+      </div>
+    </div>  
+  </div>
+</section>
+<section id="section-lastest-projects">
+  <div class="row full-width lastest-projects-container">
+  <% current_site.projects.latest(4).each do |project| %>                           
+    <article class="col-xs-6 col-sm-6 col-md-3 post-item portfolio-post-item">
+      <%= link_to(project.public_url, :data => { :remote => true }) do %>
+        <div class="post-image">
+          <%= image_tag(project.thumbnail.thumbnail.black_and_white("510x350#").url(), :alt => project.thumbnail.title ) if project.thumbnail %>
+        </div>
+        <div class="post-caption">
+          <h2 class="post-title"><%= project.title %></h2>
+        </div>
+      <% end %>
+    </article> 
+  <% end %>
+  </div>                    
+</section>
+<!-- END LATEST PROJECTS --> 
+
+<% if portfolio %> 
+<!-- START PORTFOLIO -->
+<div class="portfolio-section"> 
+<section class="section-title-container"> 
+  <div class="container">
+    <div class="row">
+  	  <div class="col-xs-12">
+  	    <h3 class="section-title text-center"><%= portfolio.title %></h3>
+  	    <blockquote class="text-center">
+        <%= raw(portfolio.body) %>
+        </blockquote> 
+      </div>
+    </div>
+  </div>
+</section> 
+<section id="section-archived-projects">
+  <div class="row full-width">
+  <% current_site.projects.latest(22).each do |project| %>                           
+    <article class="portfolio-post-item">
+      <%= link_to(project.public_url, :data => { :remote => true }) do %>
+        <div class="post-image">
+          <%= image_tag(project.thumbnail.thumbnail.black_and_white("510x350#").url(), :alt => project.thumbnail.title ) if project.thumbnail %>
+        </div>
+        <div class="post-caption">
+          <h2 class="post-title"><%= project.title %></h2>
+          <p class="year"><%= project.preferred_release_date %></p>
+        </div>
+        <div class="wrap"></div> 
+      <% end %>
+    </article> 
+  <% end %>
+  </div>                  
+</section>
+</div>
+<!-- END PORTFOLIO -->
+<% end %>
+<% if team %> 
+<!-- START TEAM -->
+<section class="section-title-container text-center">
+  <div class="container">   
+    <div class="row"> 
+      <div class="col-xs-12">
+        <h3 class="section-title"><%= team.title %></h3>
+        <p class="section-links"><%= link_to("Voir l'équipe", team.public_url, :class => "view-all") %></p> 
+      </div>
+    </div>
+  </div>
+</section> 
+<section id="team-section">
+  <div class="container">
+    <div class="row">
+      <% team.children.each do |member| %>  
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <%= image_tag(member.thumbnail.thumbnail.black_and_white("450x325#").url(), 
+          :alt => member.thumbnail.title,
+          :class => 'img-responsive' ) if member.thumbnail %>
+        <h4><%= member.title %></h4>
+      </div>
+      <% end %>
+    </div> 
+  </div> 
+</section>
+<!-- END TEAM -->
+<% end %>

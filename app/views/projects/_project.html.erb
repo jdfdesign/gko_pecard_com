@@ -1,0 +1,14 @@
+<% if project -%>
+<article class="portfolio-post-item">
+  <%= link_to(project.public_url, :data => { :remote => true }) do %>
+    <div class="post-image">
+      <%= image_tag(project.thumbnail.thumbnail.black_and_white("450x325#").url(), :alt => project.thumbnail.title ) if project.thumbnail %>
+    </div>
+    <div class="post-caption">
+      <h2 class="post-title"><%= project.title %></h2>
+      <p class="year"><%= project.preferred_release_date %></p>
+    </div>
+    <div class="wrap"></div> 
+  <% end %>
+</article>
+<% end -%> 
