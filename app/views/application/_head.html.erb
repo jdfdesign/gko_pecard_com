@@ -10,16 +10,6 @@
     <%= raw link %> 
   <% end if @alternate_links.present? %>
 	<%= yield :meta %>
-  <script type="text/javascript">
-    (function() {
-      var config = {
-        kitId: 'ctw3jyc',
-        scriptTimeout: 3000
-      };
-      var h=document.getElementsByTagName("html")[0];h.className+=" wf-loading";var t=setTimeout(function(){h.className=h.className.replace(/(\s|^)wf-loading(\s|$)/g," ");h.className+=" wf-inactive"},config.scriptTimeout);var tk=document.createElement("script"),d=false;tk.src='//use.typekit.net/'+config.kitId+'.js';tk.type="text/javascript";tk.async="true";tk.onload=tk.onreadystatechange=function(){var a=this.readyState;if(d||a&&a!="complete"&&a!="loaded")return;d=true;clearTimeout(t);try{Typekit.load(config)}catch(b){}};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(tk,s)
-    })();
-  </script>
-  <link href='http://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
 	<% if site.has_plugin?(:themes) and site.has_theme? %>
     <%= theme_stylesheet_link_tag "public" %>
 	<% else %>
@@ -31,8 +21,8 @@
 	<!-- <link rel="apple-touch-icon" href="assets/ico/apple-touch-icon.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="assets/ico/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="assets/ico/apple-touch-icon-114x114.png"> -->
-  <%= render "typekit" %>
+  <%#= render "typekit" %>
   <%= csrf_meta_tags if site.authenticity_token_on_frontend -%>
 	<%= yield :head %>
-	<%= javascript_include_tag "modernizr-2.6.2-respond-1.1.0.min" %>
+	<%#= javascript_include_tag "modernizr-2.6.2-respond-1.1.0.min.js" %>
 </head>
