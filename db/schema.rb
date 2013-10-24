@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131018055418) do
+ActiveRecord::Schema.define(:version => 20131024160961) do
 
   create_table "assets", :force => true do |t|
     t.integer  "site_id"
@@ -222,6 +222,23 @@ ActiveRecord::Schema.define(:version => 20131018055418) do
     t.string   "image_uid"
   end
 
+  create_table "inquiries", :force => true do |t|
+    t.string   "type"
+    t.string   "confirmation_code", :limit => 40
+    t.string   "to_email"
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.text     "message"
+    t.boolean  "open",                            :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "confirmed_at"
+    t.boolean  "spam",                            :default => false
+    t.text     "options"
+    t.integer  "site_id"
+  end
+
   create_table "languages", :force => true do |t|
     t.integer  "site_id"
     t.string   "name"
@@ -236,6 +253,25 @@ ActiveRecord::Schema.define(:version => 20131018055418) do
 
   add_index "languages", ["site_id", "position"], :name => "index_languages_on_site_id_and_position"
   add_index "languages", ["site_id"], :name => "index_languages_on_site_id"
+
+  create_table "mail_methods", :force => true do |t|
+    t.integer  "site_id",                                                       :null => false
+    t.string   "environment",            :default => "production"
+    t.boolean  "enable_mail_delivery",   :default => true
+    t.string   "mail_host",              :default => "localhost"
+    t.string   "mail_domain",            :default => "localhost"
+    t.integer  "mail_port",              :default => 25
+    t.string   "mail_auth_type",         :default => "none"
+    t.string   "smtp_username",                                                 :null => false
+    t.string   "smtp_password",                                                 :null => false
+    t.string   "secure_connection_type", :default => "None"
+    t.string   "mails_from",             :default => "no-reply@joufdesign.com"
+    t.string   "mail_bcc"
+    t.datetime "created_at",                                                    :null => false
+    t.datetime "updated_at",                                                    :null => false
+  end
+
+  add_index "mail_methods", ["site_id"], :name => "index_mail_methods_on_site_id"
 
   create_table "partner_translations", :force => true do |t|
     t.integer  "partner_id"
@@ -376,6 +412,7 @@ ActiveRecord::Schema.define(:version => 20131018055418) do
     t.boolean  "front_page_cached",        :default => false
     t.text     "stylesheet"
     t.text     "javascript"
+    t.text     "mailer_settings"
   end
 
   add_index "sites", ["host"], :name => "index_sites_on_host", :unique => true
