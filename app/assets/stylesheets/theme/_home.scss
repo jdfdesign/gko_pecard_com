@@ -1,4 +1,6 @@
 #header {
+  background-repeat: no-repeat; 
+  background-attachment: fixed;
   background-color: $brand-primary; 
   overflow: hidden;
   height: auto;
@@ -124,7 +126,11 @@
 
 #team-section {
   padding: 100px 40px;
-  background-color: #fff; 
+  background-color: #fff;
+  h4 {
+    font-size: 12px;
+    text-transform: uppercase;
+  } 
 }
 
 .portfolio-post-item {

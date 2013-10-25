@@ -44,7 +44,8 @@ $th-brand-logo-height: 52px;
 @import "font-awesome-3.2.1/font-awesome"; 
 @import "theme/navbar";
 @import "theme/footer";
-@import "theme/form"; 
+@import "theme/form";
+@import "theme/thumbnail"; 
 @import "theme/home"; 
 
 /* FIX FOR IE DEVICE_WIDTH BUG
@@ -112,7 +113,9 @@ html, body, #page-wrapper {
   padding: 0px;
   @include box-sizing(border-box);
 }
-
+body {
+  font-weight: 300;
+}
 #page-wrapper {
  padding-top: $navbar-height; 
  display: none;
@@ -130,4 +133,28 @@ html, body, #page-wrapper {
   letter-spacing: 4px;
 }
 
+.btn-bordered {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 11px;
+  padding: 5px;
+  margin-top: 20px;
+  .active,
+  &:hover {
+    text-decoration: none;
+  }
+}
+.btn-bordered-default {
+  border: 2px solid #333333;
+  color: #333333;
+  .active,
+  &:hover {
+    border-color: $brand-primary;
+    color: $brand-primary;
+  }
+}
 
+
+#project-top-bar {
+  background-color: #222;
+}

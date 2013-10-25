@@ -42,7 +42,6 @@ var RemotePage = {
       } else {
         RemotePage.currentPage = id;
       }
-
     })
     .on("ajax:success", function(evt, xhr, settings) {
       console.log("Site.success xhr " + eval(xhr))
@@ -74,6 +73,19 @@ var RemotePage = {
       console.log("Site.error " + flash.error);
     });
     
+    $("#next-project").on('click', function(e) {
+      var link = RemotePage.nextItem.find("a:first");
+      console.log("link is " + RemotePage.nextItem.find("a:first").attr("href"));
+      e.preventDefault();
+      link.trigger("click");
+    }); 
+    
+    $("#previous-project").on('click', function(e) {
+      var link = RemotePage.previousItem.find("a:first");
+      console.log("link is " + RemotePage.previousItem.find("a:first").attr("href"));
+      e.preventDefault();
+      link.trigger("click");
+    });
     /* Function to close project */ 
     $("#close-project").on('click', function(){
       jQuery('iframe').attr('src', jQuery('iframe').attr('src')); // required to stop video's on exit project
@@ -83,15 +95,25 @@ var RemotePage = {
   		});
     });
   },
-  getNextAndPreviousItem: function() { 
+  getNextAndPreviousItem: function() {
+    var parent = RemotePage.currentItem.parent(),
+        length = parent.find(RemotePage.itemTag).length;  
     RemotePage.previousItem = RemotePage.currentItem.prev();
     RemotePage.nextItem = RemotePage.currentItem.next();
+
+		var index = RemotePage.nextItem.index();
+		console.log("prev index " + RemotePage.previousItem.index());
+		console.log("next index " + RemotePage.nextItem.index());
+		console.log("cur index " + RemotePage.currentItem.index());
+		console.log("length " + length);
+
     
-    if (RemotePage.previousItem == 0){
-			RemotePage.previousItem = jQuery('.lastest-projects-container').length;
+    if (RemotePage.previousItem.index() == -1){
+			//RemotePage.previousItem = $( '"' + parent + " " + RemotePage.itemTag + ":eq(" + (length - 1) + ")" + '"'); 
 		}
-		if (RemotePage.nextItem == jQuery('.lastest-projects-container').length + 1) {
-			RemotePage.nextItem = 1;
+		
+		if (index == length - 1) {
+			//RemotePage.nextItem = $( '"' + parent + " " + RemotePage.itemTag + ":eq(" + (index + 1) + ")" + '"');
 		}
   }
 }

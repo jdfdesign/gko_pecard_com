@@ -2,7 +2,7 @@
 <!-- Header
 ================================================== -->
 <nav class="navbar navbar-inverse navbar-fixed-top">
-  <%= render "locales_select" %>
+  
 
     <div class="navbar-header">
       <%= link_to(image_tag("logo.png"), root_url, :alt => site.title, :class => "navbar-brand") %>
@@ -14,6 +14,7 @@
       </button>
     </div>
     <div class="collapse navbar-collapse">
+      <%= render "locales_select" %>
       <ul class="nav navbar-nav">
         <% site.primary_menu.each do |section| %>
           <li id="<%= dom_id(section) %>">
@@ -21,7 +22,8 @@
           </li>
         <% end %>
       </ul> 
+      
     </div>
-
+    
 </nav>
 <%# end %>

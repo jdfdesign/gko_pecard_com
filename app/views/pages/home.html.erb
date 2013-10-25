@@ -33,7 +33,7 @@
       <div class="col-xs-12">
         <h3 class="section-title text-center">Projets en cours et récents</h3>
         <p class="section-desc text-center">Plus de 30 ans d’expérience, plus de 200 projets d'architecture à St.Barth à notre actif.</p>
-        <p class="section-links text-center"><%= link_to("Tout voir", portfolio.public_url, :class => "view-all") %></p> 
+        <p class="section-links text-center"><%= link_to("Tout voir", portfolio.public_url, :class => "btn-bordered btn-bordered-default") %></p> 
       </div>
     </div>  
   </div>
@@ -66,7 +66,8 @@
   	    <h3 class="section-title text-center"><%= portfolio.title %></h3>
   	    <blockquote class="text-center">
         <%= raw(portfolio.body) %>
-        </blockquote> 
+        </blockquote>
+        <p class="section-links text-center"><%= link_to("Tout voir", portfolio.public_url, :class => "btn-bordered btn-bordered-default") %></p> 
       </div>
     </div>
   </div>
@@ -99,7 +100,7 @@
     <div class="row"> 
       <div class="col-xs-12">
         <h3 class="section-title"><%= team.title %></h3>
-        <p class="section-links"><%= link_to("Voir l'équipe", team.public_url, :class => "view-all") %></p> 
+        <p class="section-links"><%= link_to("Voir l'équipe", team.public_url, :class => "btn-bordered btn-bordered-default") %></p> 
       </div>
     </div>
   </div>

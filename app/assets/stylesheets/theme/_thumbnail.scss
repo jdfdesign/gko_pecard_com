@@ -1,0 +1,17 @@
+.thumbnail {
+  height: 200px;
+  text-align: center; 
+  &:hover {
+    @include opacity(.8);
+  }
+  a {
+    color: $theme-color;
+  }
+}
+
+.img-thumbnail {
+  display: block;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}

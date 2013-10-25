@@ -10,18 +10,15 @@
   font-size: $font-size-base - 4;
 }
 
-#locales-menu {
-  position: fixed;
-  z-index: $zindex-navbar-fixed + 1;
-  right: 0;
-  top: 0;
+#locales-menu { 
+  position: relative;
   .nav > li > a { 
     background-color: $brand-primary;
     color: #fff;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-size: $font-size-base - 5;
-    padding: 4px 8px;
+    font-size: $font-size-base - 4;
+    line-height: $line-height-computed;
     &:hover,
     &:focus {
       background-color: lighten($brand-primary, 10%); 
@@ -35,5 +32,15 @@
 @media (min-width: $grid-float-breakpoint + 1) {
   .navbar-nav {
     @include pull-right;
+  }
+  #locales-menu {
+    @include pull-right;
+    .nav > li {
+      float: left;
+      > a {
+        padding-top: (($navbar-height - $line-height-computed) / 2);
+        padding-bottom: (($navbar-height - $line-height-computed) / 2);
+      }
+    }
   }
 }
