@@ -1,14 +1,27 @@
 #header {
   background-repeat: no-repeat; 
-  background-attachment: fixed;
-  background-color: $brand-primary; 
+  background-attachment: fixed; 
   overflow: hidden;
   height: auto;
-  height: 100%;
+  height: 100%;  
+  position: relative;
+  .text-container {
+    @include opacity(.9);
+     position: absolute;
+     @include center-block; 
+     background-color: $theme-color;
+     padding: 30px;
+     width: 320px;
+     height: 200px;
+     left: 50%;
+     bottom: 40px;
+     margin-left: -160px; 
+  }
   .share {
     text-align: center;
-    width: 300px;
+    width: 100%;
     @include center-block;
+    margin-top: 40px;
     > h3 {
       width: 136px;
       font-size: 12px;
@@ -46,10 +59,10 @@
       line-height: 30px; 
       padding: 0;
       text-align: center;
-      background-color: rgba(255,255,255,0.4);
+      background-color: #fff;
       @include box-shadow(none);
       &:hover {
-        background-color: rgba(255,255,255,1);
+        background-color: #000;
       }
     }
   }
@@ -65,7 +78,9 @@
 #section-archived-projects {
   overflow-x: hidden;
 }
-
+.section-links {
+  margin-top: 20px; 
+}
 .section-title-container { 
   background-color: $gray-lighter;
   padding-top: 3.125em;
@@ -90,7 +105,16 @@
     
   }
   
- 
+  .btn-bordered-default {
+    
+    border: 2px solid #7a7a7a;
+    color: #7a7a7a;
+    .active,
+    &:hover {
+      border-color: $brand-primary;
+      color: $brand-primary;
+    }
+  }
   blockquote {
     font-size: 18px;
     font-style: italic;
@@ -130,7 +154,7 @@
   h4 {
     font-size: 12px;
     text-transform: uppercase;
-  } 
+  }
 }
 
 .portfolio-post-item {
@@ -179,16 +203,49 @@
   }
 }
 #section-archived-projects {
-  .portfolio-post-item {
-    width: 12.5%; 
+  overflow-x: hidden; 
+  .col-xs-3, .col-sm-2 {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
     position: relative;
-    min-height: 0;
-    float: left;
     a {
-      min-height: 0;
-      position: relative;
+      display: block;
+    	min-height: 0;
+    	position: relative; 
+    	color: #000;
+    	cursor: image-url('cursor_more.gif') 38 38, image-url('cursor_more.cur') 38 38, pointer;
+    	.active,
+      &:hover {
+    	  text-decoration: none;
+    	}
+    }
+    .post-infos {
+      text-align: center; 
+      display: table;
+    }
+    .post-title {
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      @include transition(all 0.3s ease-in-out);
+      span {
+        vertical-align:middle;
+        display:inline-block;
+      }
+       
+    }
+    .post-image {
+      padding: 0;
+      margin: 0;
+      img {
+        @include img-responsive;
+      }
     } 
-    .post-caption { 
+    .post-caption {
+      margin: 0;
+      text-align: center; 
       padding: $line-height-computed 8px;
       position: absolute; 
       @include opacity(0);
@@ -202,10 +259,10 @@
     }
     &:hover {
       .post-caption {
-          @include opacity(100); 
-        }
+        @include opacity(1); 
       }
     }
+  }
 }
 /* RESPONSIVE
 -------------------------------------------------- */
@@ -214,56 +271,7 @@
     padding-top: 6.25em;
     padding-bottom: 6.25em;
   }
-  .portfolio-post-item {
-     min-height: 360px; 
-     #section-archived-projects {
-       .portfolio-post-item {
-         min-height: 0; 
-       }
-     }
-  }
   section h1 {
     font-size: 3.125em;
-  }
-}
-/* CAROUSEL
--------------------------------------------------- */
-
- 
-#home-carousel {
-  background-color: $gray-dark;
-  margin-bottom: 0;
-  .play {
-    text-decoration: none;
-    color: #FFF;
-    background-color: $theme-color;
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 0.25em;
-    -webkit-font-smoothing: antialiased;
-    margin-bottom: $line-height-computed*2; 
-    @include opacity(.9);
-    .text { 
-      padding-left: $line-height-computed*2;
-      text-align: center;
-      display: block;
-      line-height: 100px;
-      background-color: $theme-color; 
-    }
-  }
-
-  .carousel-inner {
-    .item {
-      max-height: 600px; 
-    }
-  }
-  .carousel-caption {
-    bottom: 0;
-    left: 80px;
-    right: 80px;
-    background-color: transparent;
-    text-align: center; 
-    
-
   }
 }

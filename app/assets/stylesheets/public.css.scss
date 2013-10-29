@@ -47,6 +47,8 @@ $th-brand-logo-height: 52px;
 @import "theme/form";
 @import "theme/thumbnail"; 
 @import "theme/home"; 
+@import "theme/portfolio";
+@import "theme/publication";
 
 /* FIX FOR IE DEVICE_WIDTH BUG
 -------------------------------------------------- */
@@ -117,13 +119,9 @@ body {
   font-weight: 300;
 }
 #page-wrapper {
- padding-top: $navbar-height; 
  display: none;
- 
 }
-#project-page {
-  display: none;
-}
+
 
 /* TYPE
 -------------------------------------------------- */
@@ -132,13 +130,19 @@ body {
   font-weight: 300; 
   letter-spacing: 4px;
 }
-
+.copy-text {
+  ul { list-style: disc outside; margin-left: 30px; }
+  ol { margin-left: 30px; }
+	table {
+    @extend .table;
+  }
+}
 .btn-bordered {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 11px;
   padding: 5px;
-  margin-top: 20px;
+  
   .active,
   &:hover {
     text-decoration: none;
@@ -154,7 +158,33 @@ body {
   }
 }
 
-
+/* PROJECT PAGE
+-------------------------------------------------- */
+#project-page {
+  display: none;
+}
 #project-top-bar {
   background-color: #222;
+  padding: $line-height-computed;
+  line-height: 60px; 
+  .top-bar-btn {
+    @include opacity(.6);
+    .active,
+    &:hover {
+      @include opacity(.9);
+    }
+  }
+}
+
+#next-project-name,
+#previous-project-name {
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 11px;
+  font-weight: 300;
+    .active,
+  &:hover {
+    color: #fff;
+  }
 }

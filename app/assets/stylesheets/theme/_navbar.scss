@@ -1,5 +1,12 @@
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
+.navbar.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: auto;
+}
 .navbar-brand {
   padding-top: ($navbar-height - $th-brand-logo-height)/2;
   padding-bottom: ($navbar-height - $th-brand-logo-height)/2;

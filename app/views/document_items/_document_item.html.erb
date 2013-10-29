@@ -3,9 +3,10 @@
   <div class="thumbnail">
   <%= link_to(image_tag(document_item.thumbnail.url), document_item.document.url) if document_item.thumbnail.present? %>      
     <div class="caption">
+      <%= document_item.title %>
       <%= document_item.body if parent.use_description && document_item.present? %> 
       <% if parent.use_publication_date and document_item.published_at.present? %>
-        <p class='date'><small><%= l(document_item.published_at, :format => :long).html_safe %></small></p>
+        <p class='date'><small><%= l(document_item.published_at, :format => "%Y").html_safe %></small></p>
       <% end %>
       <% if parent.use_country and document_item.country.present? %>
 			  <p class='country'><small><%= document_item.country %></small></p>

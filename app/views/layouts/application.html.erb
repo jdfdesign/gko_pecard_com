@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html class="no-js">
 <%= render 'head' %>
-<body>
+<body class="home">
   <div id="page-wrapper">
+    <%= yield :header if content_for?(:header) %>
     <%= render 'navbar' %>
     <%= yield %>
     <%= render 'footer' %>
@@ -12,17 +13,21 @@
     <div id="project-top-bar">
       <div class="row">
         <div class="col-xs-2">
-          <span id="previous-project"><%= image_tag("cur_prev.gif") %></span>
-          <span id="previous-project-name">Title 2</span>
+          <a id="previous-project" href="#" class="top-bar-btn pull-left"> 
+            <%= image_tag("cur_prev.gif", :class => "pull-left") %>
+            <span id="previous-project-name" class="pull-right hidden-xs">Title 2</span>
+          </a>
         </div>
-        <div class="col-xs-8">
-          <div id="close-project">
+        <div class="col-xs-8 text-center">
+          <a id="close-project" href="#" class="top-bar-btn">
           <%= image_tag("cursor_close.gif") %>
-          </div>
+          </a>
         </div>
         <div class="col-xs-2">
-          <span id="next-project-name">Title 4</span>
-          <span id="next-project"><%= image_tag("cur_next.gif") %></span>
+          <a id="next-project" href="#" class="top-bar-btn pull-right">
+            <span id="next-project-name" class="pull-left hidden-xs">Title 4</span>
+            <%= image_tag("cur_next.gif", :class => "pull-right") %>
+          </a>
         </div>
       </div>
     </div>	

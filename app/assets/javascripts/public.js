@@ -16,9 +16,21 @@ jQuery(function($){
 
   THEME.anim = function(){
     /* Starting Animation on Load */ 
-    var wrapper = $("#page-wrapper");
-    var header= $("#header");
-    var image_url = header.data("bg");
+    var wrapper = $("#page-wrapper"),
+        header= $("#header"),
+        image_url = header.data("bg"),
+        navbar = $('.navbar'),
+        navbarHeight = navbar.height();
+    
+    //navbar.hide();
+    wrapper.hide();
+    
+        
+    $(window).bind('scroll', function () {
+      var scrollTop = $(window).scrollTop();
+      scrollTop >= $(window).height() - navbarHeight ? $(".navbar").addClass("fixed") : $(".navbar").removeClass("fixed");
+    });
+    
     if(image_url) {
       $('<img/>').attr('src', image_url).load(function() {
         header.css("background-image", "url(" + image_url + ")");
@@ -35,6 +47,7 @@ jQuery(function($){
     }
   }
 
+  
   /* ==================================================
   	Fix
   ================================================== */
@@ -89,13 +102,7 @@ jQuery(function($){
     	Navigation
     ================================================== */
     THEME.navigation = function() {
-      
-      var navbarHeight = $('.navbar').height();
-      $(window).bind('scroll', function () {
-        var scrollTop = jQuery(window).scrollTop();
-        scrollTop >= $(window).height() - navbarHeight ? $(".navbar").addClass("fixed") : $(".navbar").removeClass("fixed");
-      });
-      
+
       $('.navbar-nav li').on("click", function(e) {
         var target = $("#" + $(this).attr('id') + "_page"),
             navbarHeight = $('.navbar').height();
