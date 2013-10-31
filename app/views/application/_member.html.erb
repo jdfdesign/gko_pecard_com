@@ -1,5 +1,6 @@
 <%= image_tag(record.thumbnail.thumbnail.black_and_white("1200x800#").url(), 
   :alt => record.thumbnail.title,
   :class => 'img-responsive' ) if record.thumbnail %>
-<h4><%= record.title %></h4>
-<%= raw(record.body) %>
+<h3 class="no-margin-bottom"><%= record.title %></h3>
+<p><em><%= get_text_element(record,'fonction') %></em></p> 
+<%= render_copy_text(record.body) %>

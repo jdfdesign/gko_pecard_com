@@ -34,9 +34,3 @@ rake jobs:clear
 
 cd ~/Github/gko_pecard_com
 bundle exec rake assets:themes:precompile
-
-cd ~/Github/gko_pecard_com
-bundle exec rake db:migrate_page_content
-
-cd ~/Github/gko_pecard_com
-bundle exec rake db:unmigrate_page_content

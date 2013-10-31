@@ -12,14 +12,33 @@
     <div class="col-xs-12 col-sm-6 col-md-4">
       <div class="page-header">
         <%= render_page_title(resource.title) %>
-        <p class="year"><%= resource.preferred_release_date %></p>
+        <p class="year"><%= raw resource.preferred_release_date %></p>
       </div>
       <%= render_copy_text(resource.body) %>
       <p><%= link_to(t("custom.visit_website"), resource.website, 
           :target => "_blank", :class => "visit_website") unless resource.website.blank? %></p>
+      <div class="share clearfix">
+        <ul class="nav nav-share-links">
+          <li><small><%= raw(t("custom.share") + ":&nbsp;&nbsp;") %></small></li>
+          <li><%= link_to(raw("<i class='icon-facebook icon-white icon-large'></i>"), 
+                  u("https://www.facebook.com/sharer/sharer.php?u=#{request.protocol + request.host + resource.public_url }"), 
+                  :target => "_blank") %></li>
+          <li><%= link_to(raw("<i class='icon-twitter icon-white icon-large'></i>"), 
+                  u("https://twitter.com/share"), 
+                  :data => { :lang => I18n.locale.to_s }, 
+                  :target => "_blank") %></li>
+          <li><%= link_to(raw("<i class='icon-pinterest icon-white icon-large'></i>"), 
+                  u("http://pinterest.com/pin/create/button/?url=#{request.protocol + request.host + resource.public_url }&amp;media=#{request.protocol + request.host + resource.thumbnail.thumbnail.black_and_white('900x650#').url()}&amp;description=#{resource.title}"), 
+                  :target => "_blank") %>
+          <li><%= link_to(raw("<i class='icon-google-plus icon-white icon-large'></i>"), 
+                  u("https://plus.google.com/share?url=#{request.protocol + request.host + resource.public_url }"), 
+                  :target => "_blank") %></li> 
+        </ul>
+      </div>          
+          
     </div>   
   </div>
   </div>
 </article>
 
-<%# end %>
+<%# end %>   

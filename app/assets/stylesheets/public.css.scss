@@ -92,6 +92,7 @@ a {
   @include transition(all 0.3s ease-in-out);
 }
 
+
 .row.full-width {
   max-width: none;
   [class^="col-xs-"],
@@ -130,6 +131,9 @@ body {
   font-weight: 300; 
   letter-spacing: 4px;
 }
+.no-margin-bottom {
+  margin-bottom: 0;
+}
 .copy-text {
   ul { list-style: disc outside; margin-left: 30px; }
   ol { margin-left: 30px; }
@@ -158,33 +162,3 @@ body {
   }
 }
 
-/* PROJECT PAGE
--------------------------------------------------- */
-#project-page {
-  display: none;
-}
-#project-top-bar {
-  background-color: #222;
-  padding: $line-height-computed;
-  line-height: 60px; 
-  .top-bar-btn {
-    @include opacity(.6);
-    .active,
-    &:hover {
-      @include opacity(.9);
-    }
-  }
-}
-
-#next-project-name,
-#previous-project-name {
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 11px;
-  font-weight: 300;
-    .active,
-  &:hover {
-    color: #fff;
-  }
-}

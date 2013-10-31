@@ -69,8 +69,8 @@
 </section>
 </div>
 <!-- END PORTFOLIO -->
-<% end %>
-<% if team %> 
+<% end -%>
+<% if team -%> 
 <!-- START TEAM -->
 <section class="section-title-container text-center">
   <div class="container">   
@@ -87,12 +87,15 @@
     <div class="row">
       <% team.children.each do |member| %>  
       <div class="col-xs-12 col-sm-6 col-md-3">
+        <%= link_to team.public_url do %>
         <%= image_tag(member.thumbnail.thumbnail.black_and_white("450x325#").url(), 
           :alt => member.thumbnail.title,
           :class => 'img-responsive' ) if member.thumbnail %>
-        <h4><%= member.title %></h4>
+        <h4 class="no-margin-bottom"><%= member.title %></h4>
+        <p><em><small><%= get_text_element(member,'fonction') %></small></em></p> 
+        <% end -%>
       </div>
-      <% end %>
+      <% end -%>
     </div> 
   </div> 
 </section>

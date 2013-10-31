@@ -12,18 +12,18 @@
     <!-- START PROJECT-TOP-BAR -->
     <div id="project-top-bar">
       <div class="row">
-        <div class="col-xs-2">
+        <div class="col-xs-4">
           <a id="previous-project" href="#" class="top-bar-btn pull-left"> 
             <%= image_tag("cur_prev.gif", :class => "pull-left") %>
             <span id="previous-project-name" class="pull-right hidden-xs">Title 2</span>
           </a>
         </div>
-        <div class="col-xs-8 text-center">
+        <div class="col-xs-4 text-center">
           <a id="close-project" href="#" class="top-bar-btn">
           <%= image_tag("cursor_close.gif") %>
           </a>
         </div>
-        <div class="col-xs-2">
+        <div class="col-xs-4">
           <a id="next-project" href="#" class="top-bar-btn pull-right">
             <span id="next-project-name" class="pull-left hidden-xs">Title 4</span>
             <%= image_tag("cur_next.gif", :class => "pull-right") %>
@@ -39,6 +39,15 @@
    
   <script src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js' ></script>
   <script src='//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js'></script>
+  <script type="text/javascript">
+  (function(d){
+      var f = d.getElementsByTagName('SCRIPT')[0], p = d.createElement('SCRIPT');
+      p.type = 'text/javascript';
+      p.async = true;
+      p.src = '//assets.pinterest.com/js/pinit.js';
+      f.parentNode.insertBefore(p, f);
+  }(document));
+  </script>
   <%= render 'javascripts' %> 
 </body>  
 </html>

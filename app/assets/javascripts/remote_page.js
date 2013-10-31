@@ -13,7 +13,7 @@ var RemotePage = {
     RemotePage.container.hide();
     $('a[data-remote]').on("ajax:beforeSend", function(evt, xhr, settings) {
       var that, id; 
-      console.log("beforeSend")
+      //console.log("beforeSend")
       that = $(this); 
 
       // Remove active class on currentItem if any
@@ -26,7 +26,7 @@ var RemotePage = {
       RemotePage.currentItem = that.closest(RemotePage.itemTag);
   		RemotePage.currentItemOffset = RemotePage.currentItem.offset().top;
       RemotePage.getNextAndPreviousItem();
-			
+
       // Flag parent (currentItem) as active 
       RemotePage.currentItem.addClass('active');
       
@@ -44,7 +44,7 @@ var RemotePage = {
       }
     })
     .on("ajax:success", function(evt, xhr, settings) {
-      console.log("Site.success xhr " + eval(xhr))
+      //console.log("Site.success xhr " + eval(xhr))
       var that = $(this), 
           url = that.attr('href');
 
@@ -54,7 +54,11 @@ var RemotePage = {
         console.log("_gaq disabled for _trackPageview" + url)
       }
 
-      RemotePage.content.html(eval(xhr));
+      RemotePage.content.html(eval(xhr)); 
+
+      $("#previous-project-name").text(RemotePage.previousItem.find(".post-title:first").text());
+      $("#next-project-name").text(RemotePage.nextItem.find(".post-title:first").text());
+      
       
       try {
         FB.XFBML.parse();
@@ -75,14 +79,14 @@ var RemotePage = {
     
     $("#next-project").on('click', function(e) {
       var link = RemotePage.nextItem.find("a:first");
-      console.log("link is " + RemotePage.nextItem.find("a:first").attr("href"));
+      //console.log("link is " + RemotePage.nextItem.find("a:first").attr("href"));
       e.preventDefault();
       link.trigger("click");
     }); 
     
     $("#previous-project").on('click', function(e) {
       var link = RemotePage.previousItem.find("a:first");
-      console.log("link is " + RemotePage.previousItem.find("a:first").attr("href"));
+      //console.log("link is " + RemotePage.previousItem.find("a:first").attr("href"));
       e.preventDefault();
       link.trigger("click");
     });
@@ -98,22 +102,16 @@ var RemotePage = {
   getNextAndPreviousItem: function() {
     var parent = RemotePage.currentItem.parent(),
         length = parent.find(RemotePage.itemTag).length;  
+    
     RemotePage.previousItem = RemotePage.currentItem.prev();
     RemotePage.nextItem = RemotePage.currentItem.next();
 
-		var index = RemotePage.nextItem.index();
-		console.log("prev index " + RemotePage.previousItem.index());
-		console.log("next index " + RemotePage.nextItem.index());
-		console.log("cur index " + RemotePage.currentItem.index());
-		console.log("length " + length);
+    if (RemotePage.previousItem.index() == -1) {
+      RemotePage.previousItem = parent.find(RemotePage.itemTag).last();  
+    }
 
-    
-    if (RemotePage.previousItem.index() == -1){
-			//RemotePage.previousItem = $( '"' + parent + " " + RemotePage.itemTag + ":eq(" + (length - 1) + ")" + '"'); 
-		}
-		
-		if (index == length - 1) {
-			//RemotePage.nextItem = $( '"' + parent + " " + RemotePage.itemTag + ":eq(" + (index + 1) + ")" + '"');
-		}
+    if (RemotePage.nextItem.index() == -1) { 
+      RemotePage.nextItem = parent.find(RemotePage.itemTag).first();
+    }
   }
 }

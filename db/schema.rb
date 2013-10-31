@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131024160961) do
+ActiveRecord::Schema.define(:version => 20131031062729) do
 
   create_table "assets", :force => true do |t|
     t.integer  "site_id"
@@ -187,6 +187,26 @@ ActiveRecord::Schema.define(:version => 20131024160961) do
   end
 
   add_index "image_assignments", ["attachable_id", "attachable_type"], :name => "index_image_assignments_on_attachable_id_and_attachable_type"
+
+  create_table "image_bank_photos", :force => true do |t|
+    t.integer  "site_id"
+    t.integer  "section_id"
+    t.string   "title"
+    t.string   "caption"
+    t.string   "content_type"
+    t.integer  "width"
+    t.integer  "height"
+    t.integer  "size"
+    t.string   "source"
+    t.string   "source_filename"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.string   "author"
+    t.integer  "position",        :default => 1
+  end
+
+  add_index "image_bank_photos", ["section_id"], :name => "index_image_bank_photos_on_section_id"
+  add_index "image_bank_photos", ["site_id"], :name => "index_image_bank_photos_on_site_id"
 
   create_table "image_folders", :force => true do |t|
     t.string   "name"
@@ -429,12 +449,13 @@ ActiveRecord::Schema.define(:version => 20131024160961) do
 
   create_table "text_elements", :force => true do |t|
     t.integer "section_id"
-    t.string  "name"
-    t.text    "content"
+    t.string  "key"
+    t.text    "value"
     t.integer "position",   :default => 1
+    t.string  "value_type"
   end
 
-  add_index "text_elements", ["name"], :name => "index_text_elements_on_name"
+  add_index "text_elements", ["key"], :name => "index_text_elements_on_name"
   add_index "text_elements", ["section_id"], :name => "index_text_elements_on_section_id"
 
   create_table "tokenized_permissions", :force => true do |t|
