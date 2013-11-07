@@ -458,7 +458,7 @@ hr {
   margin-top: 20px;
   margin-bottom: 20px;
   border: 0;
-  border-top: 1px solid #eeeeee;
+  border-top: 1px solid #999999;
 }
 
 /* line 110, ../../app/assets/stylesheets/bootstrap-3.0.0/_scaffolding.scss */
@@ -664,7 +664,7 @@ h6, .h6 {
 .page-header {
   padding-bottom: 9px;
   margin: 40px 0 20px;
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: 1px solid #999999;
 }
 
 /* line 140, ../../app/assets/stylesheets/bootstrap-3.0.0/_type.scss */
@@ -764,7 +764,7 @@ abbr.initialism {
 blockquote {
   padding: 10px 20px;
   margin: 0 0 20px;
-  border-left: 5px solid #eeeeee;
+  border-left: 5px solid #999999;
 }
 /* line 225, ../../app/assets/stylesheets/bootstrap-3.0.0/_type.scss */
 blockquote p {
@@ -790,7 +790,7 @@ blockquote small:before {
 blockquote.pull-right {
   padding-right: 15px;
   padding-left: 0;
-  border-right: 5px solid #eeeeee;
+  border-right: 5px solid #999999;
   border-left: 0;
 }
 /* line 250, ../../app/assets/stylesheets/bootstrap-3.0.0/_type.scss */
@@ -10669,7 +10669,7 @@ span.valid {
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 300;
 }
 /* line 27, ../../app/assets/stylesheets/theme/_portfolio.scss */
@@ -10714,7 +10714,6 @@ span.valid {
   width: 30px;
   height: 30px;
   border-radius: 100%;
-  border: 1px solid #b3b3b3;
   padding: 0;
   line-height: 28px;
   text-align: center;
@@ -10725,7 +10724,6 @@ span.valid {
 /* line 65, ../../app/assets/stylesheets/theme/_portfolio.scss */
 .nav-share-links > li > a:hover {
   background-color: #d61941;
-  border-color: #d61941;
   color: #eeeeee;
 }
 
@@ -10862,25 +10860,30 @@ body {
 .copy-text ol {
   margin-left: 30px;
 }
+/* line 144, ../../app/assets/stylesheets/public.css.scss */
+.copy-text blockquote p {
+  font-size: 14px;
+  font-style: italic;
+}
 
-/* line 145, ../../app/assets/stylesheets/public.css.scss */
+/* line 149, ../../app/assets/stylesheets/public.css.scss */
 .btn-bordered {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 11px;
   padding: 5px;
 }
-/* line 152, ../../app/assets/stylesheets/public.css.scss */
+/* line 156, ../../app/assets/stylesheets/public.css.scss */
 .btn-bordered .active, .btn-bordered:hover {
   text-decoration: none;
 }
 
-/* line 156, ../../app/assets/stylesheets/public.css.scss */
+/* line 160, ../../app/assets/stylesheets/public.css.scss */
 .btn-bordered-default {
   border: 2px solid #333333;
   color: #333333;
 }
-/* line 160, ../../app/assets/stylesheets/public.css.scss */
+/* line 164, ../../app/assets/stylesheets/public.css.scss */
 .btn-bordered-default .active, .btn-bordered-default:hover {
   border-color: #d61941;
   color: #d61941;

@@ -140,6 +140,10 @@ body {
 	table {
     @extend .table;
   }
+  blockquote p {
+    font-size: $font-size-base;
+    font-style: italic;
+  }
 }
 .btn-bordered {
   text-transform: uppercase;

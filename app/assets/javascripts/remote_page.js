@@ -12,36 +12,19 @@ var RemotePage = {
   init: function() {
     RemotePage.container.hide();
     $('a[data-remote]').on("ajax:beforeSend", function(evt, xhr, settings) {
-      var that, id; 
-      //console.log("beforeSend")
-      that = $(this); 
+      var that = $(this); 
 
-      // Remove active class on currentItem if any
-      if(RemotePage.currentItem){
-        RemotePage.currentItem.removeClass('active');
-        RemotePage.container.hide();
+      if(RemotePage.container.is(':hidden')) {
+
+      }
+      else {
+        RemotePage.content.fadeOut(300);
       }
 
       // Get the parent (currentItem) of the link
       RemotePage.currentItem = that.closest(RemotePage.itemTag);
   		RemotePage.currentItemOffset = RemotePage.currentItem.offset().top;
       RemotePage.getNextAndPreviousItem();
-
-      // Flag parent (currentItem) as active 
-      RemotePage.currentItem.addClass('active');
-      
-      // Store de current parent (currentItem) for next/prev function
-      id = RemotePage.currentItem.attr('id');
-
-      if (RemotePage.currentPage == id) { 
-
-        RemotePage.page.fadeOut(750, function(){
-    			window.scrollTo(0,0);
-    			RemotePage.container.fadeIn(750);
-    		});
-      } else {
-        RemotePage.currentPage = id;
-      }
     })
     .on("ajax:success", function(evt, xhr, settings) {
       //console.log("Site.success xhr " + eval(xhr))
@@ -58,15 +41,21 @@ var RemotePage = {
 
       $("#previous-project-name").text(RemotePage.previousItem.find(".post-title:first").text());
       $("#next-project-name").text(RemotePage.nextItem.find(".post-title:first").text());
-      
-      
+
       try {
         FB.XFBML.parse();
       } catch (e) {
         console.log("FB error");
       }
-
-      RemotePage.container.show('300');
+      if(RemotePage.container.is(':hidden')) {
+        RemotePage.page.fadeOut(750, function(){
+          RemotePage.container.fadeIn(750);
+          window.scrollTo(0, 0);
+        });
+      }
+      else {
+        RemotePage.content.fadeIn(750);
+      }
 
     })
     .on('ajax:complete', function(evt, xhr, status) {

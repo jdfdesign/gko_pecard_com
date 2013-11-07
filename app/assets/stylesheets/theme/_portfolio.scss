@@ -21,7 +21,7 @@
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 300;
     .active,
   &:hover {
@@ -56,7 +56,7 @@
       width: 30px;
       height: 30px;
       border-radius: 100%;
-      border: 1px solid lighten($text-color, 50%);
+      //border: 1px solid lighten($text-color, 50%);
       padding: 0; 
       line-height: 28px;
       text-align: center;
@@ -64,7 +64,7 @@
       @include box-shadow(none);
       &:hover {
         background-color: $brand-primary;
-        border-color: $brand-primary; 
+        //border-color: $brand-primary; 
         color: $body-bg;
       }
     }
