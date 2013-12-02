@@ -6,6 +6,7 @@
   left: 0;
   right: 0;
   bottom: auto;
+  z-index: $zindex-navbar-fixed;
 }
 .navbar-brand {
   padding-top: ($navbar-height - $th-brand-logo-height)/2;

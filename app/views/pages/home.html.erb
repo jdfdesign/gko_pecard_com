@@ -1,9 +1,11 @@
 <% homepage = current_site.sections.find_by_name("primary_menu") %>
 <% portfolio = current_site.sections.find_by_name("portfolio") %>
 <% team = current_site.sections.find_by_name("team") %>
+<% how_we_work = current_site.sections.find_by_name("how_we_work") %>
+<% publications = current_site.sections.find_by_name("publications") %>
 <% content_for :header do -%>
 <!-- START HEADER -->
-<section id="header" class="section intro-section-title section-padding" data-bg="<%= homepage.thumbnail.thumbnail.black_and_white("1200x800#").url() if homepage.thumbnail %>">
+<section id="header" class="section intro-section-title section-padding">
   <div id="intro" class="text-center text-container">
     <%= image_tag("logo.png", :id => "logo") %> 
     <div class="share clearfix">
@@ -13,6 +15,15 @@
         <li><a href="#linkedin"><i class="icon-linkedin icon-white"></i></a></li>
         <li><a href="#google"><i class="icon-google-plus icon-white"></i></a></li>
       </ul>
+    </div>
+  </div>
+  <div class="carousel slide" id="main-carousel">
+    <div class="carousel-inner">
+    <% homepage.images.each_with_index do |img, index| %>
+      <div class="item <%= 'active' if index == 0 %>">
+        <%= image_tag(img.thumbnail("1400x900#").url(), :alt => img.title, :class => "grayscale" ) %>
+      </div>
+    <% end %>
     </div>
   </div>
 </section>
@@ -36,7 +47,7 @@
     <article class="col-xs-6 col-sm-6 col-md-3 post-item portfolio-post-item">
       <%= link_to(project.public_url, :data => { :remote => true }) do %>
         <div class="post-image">
-          <%= image_tag(project.thumbnail.thumbnail.black_and_white("510x350#").url(), :alt => project.thumbnail.title ) if project.thumbnail %>
+          <%= image_tag(project.thumbnail.thumbnail("510x350#").url(), :alt => project.thumbnail.title, :class => "grayscale" ) if project.thumbnail %>
         </div>
         <div class="post-caption">
           <h2 class="post-title"><%= project.title %></h2>
@@ -77,7 +88,10 @@
     <div class="row"> 
       <div class="col-xs-12">
         <h3 class="section-title"><%= team.title %></h3>
-        <p class="section-links"><%= link_to(t("custom.view_team"), team.public_url, :class => "btn-bordered btn-bordered-default") %></p> 
+        <p class="section-links">
+          <%= link_to(t("custom.view_team"), team.public_url, :class => "btn-bordered btn-bordered-default") %>
+          <%= link_to(t("custom.view_how_we_work"), how_we_work.public_url, :class => "btn-bordered btn-bordered-default") %> 
+        </p> 
       </div>
     </div>
   </div>
@@ -88,9 +102,9 @@
       <% team.children.each do |member| %>  
       <div class="col-xs-12 col-sm-6 col-md-3">
         <%= link_to team.public_url do %>
-        <%= image_tag(member.thumbnail.thumbnail.black_and_white("450x325#").url(), 
+        <%= image_tag(member.thumbnail.thumbnail("450x325#").url(), 
           :alt => member.thumbnail.title,
-          :class => 'img-responsive' ) if member.thumbnail %>
+          :class => 'img-responsive grayscale' ) if member.thumbnail %>
         <h4 class="no-margin-bottom"><%= member.title %></h4>
         <p><em><small><%= get_text_element(member,'fonction') %></small></em></p> 
         <% end -%>
@@ -99,5 +113,20 @@
     </div> 
   </div> 
 </section>
-<!-- END TEAM -->
-<% end %>
+<!-- END TEAM --> 
+<% end %>  
+<!-- START PUBLICATIONS -->
+<section class="section-title-container text-center">
+  <div class="container">   
+    <div class="row"> 
+      <div class="col-xs-12">
+        <h3 class="section-title"><%= publications.title %></h3>
+        <p class="section-links">
+          <%= link_to(t("custom.view_publications"), publications.public_url, :class => "btn-bordered btn-bordered-default") %>
+        </p> 
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END PUBLICATIONS -->
+

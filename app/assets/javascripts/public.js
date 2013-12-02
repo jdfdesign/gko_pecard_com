@@ -18,14 +18,12 @@ jQuery(function($){
     /* Starting Animation on Load */ 
     var wrapper = $("#page-wrapper"),
         header= $("#header"),
-        image_url = header.data("bg"),
+        image_url = $("#main-carousel img:first").attr('src'),
         navbar = $('.navbar'),
         navbarHeight = navbar.height();
     
-    //navbar.hide();
     wrapper.hide();
-    
-        
+
     $(window).bind('scroll', function () {
       var scrollTop = $(window).scrollTop();
       scrollTop >= $(window).height() - navbarHeight ? $(".navbar").addClass("fixed") : $(".navbar").removeClass("fixed");
@@ -33,8 +31,8 @@ jQuery(function($){
     
     if(image_url) {
       $('<img/>').attr('src', image_url).load(function() {
-        header.css("background-image", "url(" + image_url + ")");
-        wrapper.fadeIn(1200, function() { 
+        $('.carousel-inner item').css('max-height', $(window).height());
+        $("#page-wrapper").fadeIn(1200, function() { 
         	jQuery('#logo').fadeIn(600, function() {
         		jQuery('.share').animate({opacity: '1', 'padding-top': '0'}, 500,function() {
 
@@ -47,7 +45,6 @@ jQuery(function($){
     }
   }
 
-  
   /* ==================================================
   	Fix
   ================================================== */
@@ -62,6 +59,7 @@ jQuery(function($){
       appendChild(msViewportStyle);
     }
   };
+  
   /* ==================================================
   	Placeholder
   ================================================== */
@@ -70,6 +68,27 @@ jQuery(function($){
     // enable placeholder fix for old browsers
     $('input, textarea').placeholder();
   };
+  
+  /* ==================================================
+  	Supersized
+  ================================================== */
+
+    THEME.supersized = function() {
+    	$.supersized({
+    		slide_interval : 3000, // Length between transitions
+    		transition : 3, // 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
+    		transition_speed : 1200, // Speed of transition
+    		slides : supersized_slides,
+    		_init: function(){
+        console.log('hi im supersized')               
+      },
+    		theme :{
+    		  _init: function(){
+          console.log('hi im supersized')               
+        }}
+      })
+    };
+    
   /* ==================================================
   	Carousel
   ================================================== */
@@ -161,6 +180,7 @@ jQuery(function($){
 
   $(document).ready(function() {
     THEME.fix();
+    //THEME.supersized();
     THEME.anim(); 
     THEME.navigation();
     THEME.scrollToTop();

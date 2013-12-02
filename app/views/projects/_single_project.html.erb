@@ -4,9 +4,9 @@
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-8">
       <% resource.images.each do |img| %>
-        <%= image_tag(img.thumbnail.black_and_white("800x").url(), 
+        <%= image_tag(img.thumbnail("800x").url(), 
           :alt => img.title,
-          :class => 'img-responsive' ) %>
+          :class => 'img-responsive grayscale' ) %>
       <% end %>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-4">
