@@ -8,6 +8,39 @@
     <%= yield %>
     <%= render 'footer' %>
   </div>
+
+  <!-- START PROJECT-PAGE -->
+  <div id="simple-page">
+    <!-- START PROJECT-TOP-BAR -->
+    <div id="project-top-bar">
+      <div class="row">
+        <div class="col-xs-4">
+          <a id="previous-project" href="#" class="top-bar-btn pull-left"> 
+            <%= image_tag("cur_prev.gif", :class => "pull-left") %>
+            <span id="previous-project-name" class="pull-right hidden-xs">Title 2</span>
+          </a>
+        </div>
+        <div class="col-xs-4 text-center">
+          <a id="close-project" href="#" class="top-bar-btn">
+          <%= image_tag("cursor_close.gif") %>
+          </a>
+        </div>
+        <div class="col-xs-4">
+          <a id="next-project" href="#" class="top-bar-btn pull-right">
+            <span id="next-project-name" class="pull-left hidden-xs">Title 4</span>
+            <%= image_tag("cur_next.gif", :class => "pull-right") %>
+          </a>
+        </div>
+      </div>
+    </div>	
+    <!-- END PROJECT-TOP-BAR -->
+    <!-- START PROJECT -->
+    <div id="page-content"></div>
+    <!-- END PROJECT -->
+  </div>
+  <!-- END PROJECT-PAGE -->
+  
+  <!-- START PROJECT-PAGE -->
   <div id="project-page">
     <!-- START PROJECT-TOP-BAR -->
     <div id="project-top-bar">
@@ -36,6 +69,7 @@
     <div id="project-content"></div>
     <!-- END PROJECT -->
   </div>
+  <!-- END PROJECT-PAGE -->
    
   <script src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js' ></script>
   <script src='//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js'></script>

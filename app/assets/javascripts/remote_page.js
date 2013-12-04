@@ -11,7 +11,7 @@ var RemotePage = {
 
   init: function() {
     RemotePage.container.hide();
-    $('a[data-remote]').on("ajax:beforeSend", function(evt, xhr, settings) {
+    $(RemotePage.itemTag + ' a[data-remote]').on("ajax:beforeSend", function(evt, xhr, settings) {
       var that = $(this); 
 
       if(RemotePage.container.is(':hidden')) {

@@ -2,6 +2,8 @@
 -------------------------------------------------- */
 #project-page {
   display: none;
+  background-color: $body-bg;
+  min-height: 100%;
 }
 #project-top-bar {
   background-color: #222;

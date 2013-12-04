@@ -3,6 +3,13 @@
 <% team = current_site.sections.find_by_name("team") %>
 <% how_we_work = current_site.sections.find_by_name("how_we_work") %>
 <% publications = current_site.sections.find_by_name("publications") %>
+<% content_for :before_javascript_libraries do %>
+  <% if homepage.images.any? %>
+    <script type="text/javascript">
+      var supersized_slides = [<%= raw homepage.images.map{|c| "{image: '#{c.thumbnail("1400x900#").url()}'}" }.join(",").to_s %>]
+    </script>
+  <% end %>
+<% end %>
 <% content_for :header do -%>
 <!-- START HEADER -->
 <section id="header" class="section intro-section-title section-padding">
@@ -15,15 +22,6 @@
         <li><a href="#linkedin"><i class="icon-linkedin icon-white"></i></a></li>
         <li><a href="#google"><i class="icon-google-plus icon-white"></i></a></li>
       </ul>
-    </div>
-  </div>
-  <div class="carousel slide" id="main-carousel">
-    <div class="carousel-inner">
-    <% homepage.images.each_with_index do |img, index| %>
-      <div class="item <%= 'active' if index == 0 %>">
-        <%= image_tag(img.thumbnail("1400x900#").url(), :alt => img.title, :class => "grayscale" ) %>
-      </div>
-    <% end %>
     </div>
   </div>
 </section>

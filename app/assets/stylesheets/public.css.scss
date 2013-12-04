@@ -61,6 +61,7 @@ $th-brand-logo-height: 52px;
 @import "theme/home"; 
 @import "theme/portfolio";
 @import "theme/publication";
+@import "theme/supersized";
 
 /* FIX FOR IE DEVICE_WIDTH BUG
 -------------------------------------------------- */
@@ -103,6 +104,7 @@ a:focus,
 a {
   @include transition(all 0.3s ease-in-out);
 }
+#supersized > li > a > img,
 .grayscale {
   @include graycity();
 }
@@ -119,47 +121,6 @@ a {
   [class*=" col-lg-"] {
     margin: 0;
     padding: 0;
-  }
-}
-/* HEADER
--------------------------------------------------- */
-html, body, #page-wrapper {
-  width: 100%;
-  height: 100%;
-  margin: 0px;
-  padding: 0px;
-  @include box-sizing(border-box);
-}
-body {
-  font-weight: 300;
-}
-#page-wrapper {
- display: none;
- background-color: $body-bg;
-}
-section {
- background-color: $body-bg;
-}
-
-/* TYPE
--------------------------------------------------- */
-.page-header h1 {
-  text-transform: uppercase;
-  font-weight: 300; 
-  letter-spacing: 4px;
-}
-.no-margin-bottom {
-  margin-bottom: 0;
-}
-.copy-text {
-  ul { list-style: disc outside; margin-left: 30px; }
-  ol { margin-left: 30px; }
-	table {
-    @extend .table;
-  }
-  blockquote p {
-    font-size: $font-size-base;
-    font-style: italic;
   }
 }
 .btn-bordered {
@@ -183,3 +144,48 @@ section {
   }
 }
 
+/* LAYOUT
+-------------------------------------------------- */
+html, body, #page-wrapper {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  @include box-sizing(border-box);
+}
+body {
+  font-weight: 300;
+}
+#page-wrapper {
+ display: none;
+}
+
+
+/* TYPE
+-------------------------------------------------- */
+.page-header h1 {
+  text-transform: uppercase;
+  font-weight: 300; 
+  letter-spacing: 4px;
+}
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+.copy-text {
+  ul { list-style: disc outside; margin-left: 30px; }
+  ol { margin-left: 30px; }
+    table {
+    @extend .table;
+  }
+  blockquote p {
+    font-size: $font-size-base;
+    font-style: italic;
+  }
+}
+
+
+#simple-page {
+  display: none;
+  background-color: $body-bg;
+  min-height: 100%;
+}
