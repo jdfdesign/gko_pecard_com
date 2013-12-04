@@ -1,1 +1,1 @@
-<%= render(resource.template.present? ? resource.template : 'show') %>
+"<%= escape_javascript(render(resource.template.present? ? resource.template : 'remote')) %>"

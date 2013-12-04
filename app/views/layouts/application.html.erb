@@ -10,38 +10,26 @@
   </div>
 
   <!-- START PROJECT-PAGE -->
-  <div id="simple-page">
+  <div id="remote-page-modal" class="modalpage">
     <!-- START PROJECT-TOP-BAR -->
     <div id="project-top-bar">
       <div class="row">
-        <div class="col-xs-4">
-          <a id="previous-project" href="#" class="top-bar-btn pull-left"> 
-            <%= image_tag("cur_prev.gif", :class => "pull-left") %>
-            <span id="previous-project-name" class="pull-right hidden-xs">Title 2</span>
-          </a>
-        </div>
-        <div class="col-xs-4 text-center">
-          <a id="close-project" href="#" class="top-bar-btn">
+        <div class="col-xs-12 text-center">
+          <a id="close-remote-page-modal" href="#" class="top-bar-btn">
           <%= image_tag("cursor_close.gif") %>
-          </a>
-        </div>
-        <div class="col-xs-4">
-          <a id="next-project" href="#" class="top-bar-btn pull-right">
-            <span id="next-project-name" class="pull-left hidden-xs">Title 4</span>
-            <%= image_tag("cur_next.gif", :class => "pull-right") %>
           </a>
         </div>
       </div>
     </div>	
     <!-- END PROJECT-TOP-BAR -->
     <!-- START PROJECT -->
-    <div id="page-content"></div>
+    <div id="remote-page-modal-content"></div>
     <!-- END PROJECT -->
   </div>
   <!-- END PROJECT-PAGE -->
   
   <!-- START PROJECT-PAGE -->
-  <div id="project-page">
+  <div id="project-page" class="modalpage">
     <!-- START PROJECT-TOP-BAR -->
     <div id="project-top-bar">
       <div class="row">

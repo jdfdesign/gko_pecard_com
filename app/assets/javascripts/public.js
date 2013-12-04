@@ -3,6 +3,7 @@
 //= require jquery.easing
 //= require remote_form
 //= require remote_page
+//= require portfolio
 //= require supersized.3.2.7.js
 
 // make console.log safe to use
@@ -296,15 +297,14 @@ jQuery(function($){
     THEME.fix();
     THEME.supersized();
     THEME.anim();
-    $('.navbar-nav a').attr('data-remote', true); 
+     
     //THEME.navigation();
     THEME.scrollToTop();
     THEME.placeholder();
     THEME.toolTip();
     THEME.map();
+    Portfolio.init();
     RemotePage.init();
-    
-    
   });
 
 }); 

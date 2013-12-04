@@ -1,8 +1,9 @@
 .thumbnail {
   height: 200px;
-  text-align: center; 
+  text-align: center;
+  @include opacity(.8); 
   &:hover {
-    @include opacity(.8);
+    @include opacity(1);
   }
   a {
     color: $theme-color;
