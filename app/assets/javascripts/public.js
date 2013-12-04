@@ -207,7 +207,18 @@ jQuery(function($){
     THEME.toolTip = function(){ 
         $('a[data-toggle=tooltip]').tooltip();
     }
+    /* ==================================================
+       GoUp
+    ================================================== */
 
+    THEME.goTo = function(){
+    	$('.anchor-link').on('click', function(){
+    		var $target = $($(this).attr('href')).offset().top-30;
+		   
+    		$('body, html').animate({scrollTop : $target}, 750, 'easeOutExpo');
+    		return false;
+    	});
+    }
     /* ==================================================
        Map
     ================================================== */
@@ -297,8 +308,7 @@ jQuery(function($){
     THEME.fix();
     THEME.supersized();
     THEME.anim();
-     
-    //THEME.navigation();
+    THEME.goTo(); 
     THEME.scrollToTop();
     THEME.placeholder();
     THEME.toolTip();

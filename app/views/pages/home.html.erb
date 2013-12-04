@@ -34,7 +34,7 @@
       <div class="col-xs-12">
         <h3 class="section-title text-center"><%= t("custom.recent_projects_title") %></h3>
         <p class="section-desc text-center"><%= t("custom.recent_projects_intro") %></p>
-        <p class="section-links text-center"><%= link_to(t("custom.view_all"), "#portfolio-section", :class => "btn-bordered btn-bordered-default") %></p> 
+        <p class="section-links text-center"><%= link_to(t("custom.view_all"), "#portfolio-section", :class => "btn-bordered btn-bordered-default anchor-link") %></p> 
       </div>
     </div>  
   </div>
@@ -66,7 +66,6 @@
   	  <div class="col-xs-12">
   	    <h3 class="section-title text-center"><%= portfolio.title %></h3>
   	    <p class="text-center"><%= raw(portfolio.body) %></p>
-        <p class="section-links text-center"><%= link_to(t("custom.view_all"), portfolio.public_url, :class => "btn-bordered btn-bordered-default") %></p> 
       </div>
     </div>
   </div>
@@ -86,6 +85,9 @@
     <div class="row"> 
       <div class="col-xs-12">
         <h3 class="section-title"><%= team.title %></h3>
+        <% if subtitle = get_text_element(team,'subtitle') %>
+          <p class="text-center"><%= raw subtitle %></p>
+        <% end %> 
         <p class="section-links">
           <%= link_to(t("custom.view_team"), team.public_url, :class => "btn-bordered btn-bordered-default modal-link") %>
           <%= link_to(t("custom.view_how_we_work"), how_we_work.public_url, :class => "btn-bordered btn-bordered-default modal-link") %> 
@@ -119,6 +121,9 @@
     <div class="row"> 
       <div class="col-xs-12">
         <h3 class="section-title"><%= publications.title %></h3>
+        <% if subtitle = get_text_element(publications,'subtitle') %>
+          <p class="text-center"><%= raw subtitle %></p>
+        <% end %> 
         <p class="section-links">
           <%= link_to(t("custom.view_publications"), publications.public_url, :class => "btn-bordered btn-bordered-default modal-link") %>
         </p> 

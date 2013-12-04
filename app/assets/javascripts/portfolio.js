@@ -23,7 +23,10 @@ var Portfolio = {
 
       // Get the parent (currentItem) of the link
       Portfolio.currentItem = that.closest(Portfolio.itemTag);
-  		Portfolio.currentItemOffset = Portfolio.currentItem.offset().top;
+      var offset = Portfolio.currentItem.offset().top;
+  		if(offset) {
+        Portfolio.currentItemOffset = offset;
+      }
       Portfolio.getNextAndPreviousItem();
     })
     .on("ajax:success", function(evt, xhr, settings) {
