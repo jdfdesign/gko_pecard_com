@@ -3,7 +3,6 @@ var Portfolio = {
   container: $("#project-page"),
   content: $("#project-content"),
   itemTag: 'article',
-  currentPage: undefined,
   currentItem: undefined,
   previousItem: undefined,
   nextItem: undefined,

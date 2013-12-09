@@ -6,7 +6,7 @@ var RemotePage = {
 
   init: function() {
     RemotePage.modal.hide();
-    $('.navbar-nav a, .modal-link').attr('data-remote', true)
+    $('.modal-link').attr('data-remote', true)
     .on("ajax:beforeSend", function(evt, xhr, settings) {
       var that = $(this); 
 
@@ -19,7 +19,7 @@ var RemotePage = {
   		RemotePage.currentItemOffset = that.offset().top;
     })
     .on("ajax:success", function(evt, xhr, settings) {
-      console.log("Site.success xhr " + eval(xhr))
+      // console.log("Site.success xhr " + eval(xhr))
       var that = $(this), 
           url = that.attr('href');
 

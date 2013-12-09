@@ -104,7 +104,7 @@ a:focus,
 a {
   @include transition(all 0.3s ease-in-out);
 }
-#supersized > li > a > img,
+//#supersized > li > a > img,
 .grayscale {
   @include graycity();
 }

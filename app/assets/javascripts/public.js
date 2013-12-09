@@ -151,7 +151,7 @@ jQuery(function($){
       $('.navbar-nav li').on("click", function(e) {
         var target = $("#" + $(this).attr('id') + "_page"),
             navbarHeight = $('.navbar').height();
-        console.log(target);
+        //console.log(target);
         $(this).parent().find('li').removeClass('active');
         $(this).addClass('active');
 
@@ -211,12 +211,21 @@ jQuery(function($){
        GoUp
     ================================================== */
 
-    THEME.goTo = function(){
-    	$('.anchor-link').on('click', function(){
-    		var $target = $($(this).attr('href')).offset().top-30;
-		   
-    		$('body, html').animate({scrollTop : $target}, 750, 'easeOutExpo');
-    		return false;
+    THEME.anchorLinks = function(){
+    	$('.anchor-link').on('click', function(e){
+        var $target;
+        
+        if($(this).attr("id") == "portfolio") {
+          $target = $("#portfolio-section");
+        } else {
+          $target = $($(this).attr('href'));
+        }
+        
+		    if($target) {
+		      $('body, html').animate({scrollTop : $target.offset().top-30}, 750, 'easeOutExpo');
+		    }
+    		
+    		e.preventDefault();
     	});
     }
     /* ==================================================
@@ -235,9 +244,7 @@ jQuery(function($){
     			$map_lon = $map.attr('data-mapLon');
     			$map_zoom = parseInt($map.attr('data-mapZoom'));
     			$map_title = $map.attr('data-mapTitle');
-			
-			
-			
+
     			var latlng = new google.maps.LatLng($map_lat, $map_lon);			
     			var options = { 
     				scrollwheel: false,
@@ -308,13 +315,14 @@ jQuery(function($){
     THEME.fix();
     THEME.supersized();
     THEME.anim();
-    THEME.goTo(); 
+    THEME.anchorLinks(); 
     THEME.scrollToTop();
     THEME.placeholder();
     THEME.toolTip();
     THEME.map();
     Portfolio.init();
     RemotePage.init();
+    
   });
 
 }); 

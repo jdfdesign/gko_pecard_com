@@ -1,4 +1,4 @@
-<%# resource_cache(resource) do %>
+<% resource_cache(resource) do %>
 <article class='portfolio-post-single'>
   <div class="container">
   <div class="row">
@@ -6,7 +6,7 @@
       <% resource.images.each do |img| %>
         <%= image_tag(img.thumbnail("800x").url(), 
           :alt => img.title,
-          :class => 'img-responsive grayscale' ) %>
+          :class => 'img-responsive' ) %>
       <% end %>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-4">
@@ -40,5 +40,4 @@
   </div>
   </div>
 </article>
-
-<%# end %>   
+<% end %>   

@@ -10825,11 +10825,11 @@ span.valid {
 }
 
 /* line 2, ../../app/assets/stylesheets/theme/_publication.scss */
-.document_items .thumbnail {
+.document-items .thumbnail {
   background-color: #333333;
 }
 /* line 4, ../../app/assets/stylesheets/theme/_publication.scss */
-.document_items .thumbnail .caption {
+.document-items .thumbnail .caption {
   color: #f3f3f3;
 }
 
@@ -11019,7 +11019,6 @@ a {
 }
 
 /* line 109, ../../app/assets/stylesheets/public.css.scss */
-#supersized > li > a > img,
 .grayscale {
   opacity: 1;
   -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(grayscale=$gray)";

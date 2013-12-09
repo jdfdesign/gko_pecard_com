@@ -1,8 +1,8 @@
 <% homepage = current_site.sections.find_by_name("primary_menu") %>
-<% portfolio = current_site.sections.find_by_name("portfolio") %>
-<% team = current_site.sections.find_by_name("team") %>
-<% how_we_work = current_site.sections.find_by_name("how_we_work") %>
-<% publications = current_site.sections.find_by_name("publications") %>
+<% portfolio_page = current_site.sections.find_by_name("portfolio") %>
+<% team_page = current_site.sections.find_by_name("team") %>
+<% how_we_work_page = current_site.sections.find_by_name("how_we_work_page") %>
+<% publications_page = current_site.sections.find_by_name("publications") %>
 <% content_for :before_javascript_libraries do %>
   <% if homepage.images.any? %>
     <script type="text/javascript">
@@ -57,15 +57,15 @@
 </section>
 <!-- END LATEST PROJECTS --> 
 
-<% if portfolio %> 
+<% if portfolio_page %> 
 <!-- START PORTFOLIO -->
 <div id="portfolio-section" class="portfolio-section"> 
 <section class="section-title-container"> 
   <div class="container">
     <div class="row">
   	  <div class="col-xs-12">
-  	    <h3 class="section-title text-center"><%= portfolio.title %></h3>
-  	    <p class="text-center"><%= raw(portfolio.body) %></p>
+  	    <h3 class="section-title text-center"><%= portfolio_page.title %></h3>
+  	    <p class="text-center"><%= raw(portfolio_page.body) %></p>
       </div>
     </div>
   </div>
@@ -78,19 +78,19 @@
 </div>
 <!-- END PORTFOLIO -->
 <% end -%>
-<% if team -%> 
+<% if team_page -%> 
 <!-- START TEAM -->
 <section class="section-title-container text-center">
   <div class="container">   
     <div class="row"> 
       <div class="col-xs-12">
-        <h3 class="section-title"><%= team.title %></h3>
-        <% if subtitle = get_text_element(team,'subtitle') %>
+        <h3 class="section-title"><%= team_page.title %></h3>
+        <% if subtitle = get_text_element(team_page,'subtitle') %>
           <p class="text-center"><%= raw subtitle %></p>
         <% end %> 
         <p class="section-links">
-          <%= link_to(t("custom.view_team"), team.public_url, :class => "btn-bordered btn-bordered-default modal-link") %>
-          <%= link_to(t("custom.view_how_we_work"), how_we_work.public_url, :class => "btn-bordered btn-bordered-default modal-link") %> 
+          <%= link_to(t("custom.view_team"), team_page.public_url, :class => "btn-bordered btn-bordered-default modal-link") %>
+          <%= link_to(t("custom.view_how_we_work"), how_we_work_page.public_url, :class => "btn-bordered btn-bordered-default modal-link") if how_we_work_page %> 
         </p> 
       </div>
     </div>
@@ -99,9 +99,9 @@
 <section id="team-section">
   <div class="container">
     <div class="row">
-      <% team.children.each do |member| %>  
+      <% team_page.children.each do |member| %>  
       <div class="col-xs-12 col-sm-6 col-md-3">
-        <%= link_to(team.public_url, :class => "modal-link") do %>
+        <%= link_to(team_page.public_url, :class => "modal-link") do %>
         <%= image_tag(member.thumbnail.thumbnail("450x325#").url(), 
           :alt => member.thumbnail.title,
           :class => 'img-responsive grayscale' ) if member.thumbnail %>
@@ -120,12 +120,12 @@
   <div class="container">   
     <div class="row"> 
       <div class="col-xs-12">
-        <h3 class="section-title"><%= publications.title %></h3>
-        <% if subtitle = get_text_element(publications,'subtitle') %>
+        <h3 class="section-title"><%= publications_page.title %></h3>
+        <% if subtitle = get_text_element(publications_page,'subtitle') %>
           <p class="text-center"><%= raw subtitle %></p>
         <% end %> 
         <p class="section-links">
-          <%= link_to(t("custom.view_publications"), publications.public_url, :class => "btn-bordered btn-bordered-default modal-link") %>
+          <%= link_to(t("custom.view_publications"), publications_page.public_url, :class => "btn-bordered btn-bordered-default modal-link") %>
         </p> 
       </div>
     </div>
