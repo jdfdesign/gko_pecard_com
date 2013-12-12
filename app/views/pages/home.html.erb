@@ -17,10 +17,10 @@
     <%= image_tag("logo.png", :id => "logo") %> 
     <div class="share clearfix">
       <ul class="nav clearfix">
-        <li><a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<%= request.original_url %>&p[images][0]="<%= raw homepage.images.first.thumbnail("700x400#").url() %>"[title]=<%= homepage.meta_title %>&p[summary]=<%= homepage.meta_description %>"><i class="icon-facebook icon-white"></i></a>
-        <li><a href="http://twitter.com/home?status=<%= request.original_url %>"><i class="icon-twitter icon-white"></i></a></li>
-        <li><a href="#linkedin"><i class="icon-linkedin icon-white"></i></a></li>
-        <li><a href="#google"><i class="icon-google-plus icon-white"></i></a></li>
+        <li><a href="http://facebook.com/sharer.php?u=<%= URI.encode(resource.title) %>&u=<%= URI.encode(request.original_url) %>" target="_blank"><i class="fa fa-facebook icon-white"></i></a>
+        <li><a href="http://twitter.com/intent/tweet?&text=<%= URI.encode(resource.title + " " + request.original_url) %>" target="_blank"><i class="fa fa-twitter icon-white"></i></a></li>
+        <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=<%= URI.encode(request.original_url) %>&title=<%= URI.encode(resource.title) %>" target="_blank"><i class="fa fa-linkedin icon-white"></i></a></li>
+        <li><a href="https://plus.google.com/share?url=<%= URI.encode(request.original_url) %>&t=<%= URI.encode(resource.title) %>" target="_blank"><i class="fa fa-google-plus icon-white"></i></a></li>
       </ul>
     </div>
   </div>

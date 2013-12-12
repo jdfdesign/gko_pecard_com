@@ -1,19 +1,13 @@
-PATH
-  remote: ~/Github/gko_cms3/gko_auth
+GIT
+  remote: git@github.com:jdfdesign/gko_cms3.git
+  revision: 914cc9ef7383cebc2070d34da2a84695018839d1
+  tag: v0.8.09.rc9
   specs:
-    gko_auth (0.8.09.rc8)
+    gko_auth (0.8.09.rc9)
       cancan (~> 1.6.10)
       devise (~> 2.2.3)
-
-PATH
-  remote: ~/Github/gko_cms3/gko_categories
-  specs:
-    gko_categories (0.8.09.rc8)
-
-PATH
-  remote: ~/Github/gko_cms3/gko_core
-  specs:
-    gko_core (0.8.09.rc8)
+    gko_categories (0.8.09.rc9)
+    gko_core (0.8.09.rc9)
       RedCloth (= 4.2.9)
       activesupport-slices (= 0.0.2)
       acts_as_indexed (~> 0.7.7)
@@ -57,29 +51,13 @@ PATH
       uglifier (>= 1.0.3)
       uuid (= 2.3.5)
       will_paginate (~> 3.0.2)
-
-PATH
-  remote: ~/Github/gko_cms3/gko_documents
-  specs:
-    gko_documents (0.8.09.rc8)
+    gko_documents (0.8.09.rc9)
       dragonfly (~> 0.9.8)
       rack-cache (>= 0.5.3)
-
-PATH
-  remote: ~/Github/gko_cms3/gko_image_bank
-  specs:
-    gko_image_bank (0.8.09.rc8)
-
-PATH
-  remote: ~/Github/gko_cms3/gko_inquiries
-  specs:
-    gko_inquiries (0.8.09.rc8)
+    gko_image_bank (0.8.09.rc9)
+    gko_inquiries (0.8.09.rc9)
       filters_spam (~> 0.2)
-
-PATH
-  remote: ~/Github/gko_cms3/gko_portfolio
-  specs:
-    gko_portfolio (0.8.09.rc8)
+    gko_portfolio (0.8.09.rc9)
 
 GEM
   remote: https://rubygems.org/

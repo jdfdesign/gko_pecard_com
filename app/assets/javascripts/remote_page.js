@@ -30,7 +30,7 @@ var RemotePage = {
       }
 
       RemotePage.content.html(eval(xhr)); 
-
+      history.pushState(null, null, url);
       try {
         FB.XFBML.parse();
       } catch (e) {

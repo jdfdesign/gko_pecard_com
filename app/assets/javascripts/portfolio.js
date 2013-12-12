@@ -32,7 +32,8 @@ var Portfolio = {
       //console.log("Site.success xhr " + eval(xhr))
       var that = $(this), 
           url = that.attr('href');
-
+      
+      history.pushState(null, null, url);
       if (typeof(_gaq) != "undefined") {
         _gaq.push(['_trackPageview', url]);  
       } else {

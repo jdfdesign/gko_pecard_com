@@ -1,0 +1,192 @@
+/*
+Theme Name:         Cabourg
+Description:        Cabourg is html 5 theme to display your work and blog.
+Version:            1.0.0
+Author:             Regis Bruggheman
+Author URI:         http://pecardarchitecte.com
+
+*/ 
+
+/* THEME VARIABLES
+-------------------------------------------------- */
+$theme-color: #d61941; 
+$max-image-width: 1200px;
+$th-brand-logo-height: 52px;
+
+/* THEME MIXINS
+-------------------------------------------------- */
+// Usage ul { @include center-nav }
+@mixin center-nav {
+  @include clearfix();
+  text-align:center;
+  margin: 0;
+  width: 100%;
+	> li {
+    text-align:left;
+    float:none;
+    display:inline-block;
+	}
+	li > a {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding-right: 12px;
+    padding-left: 12px;
+    margin-right: 2px;
+    line-height: 14px; // keeps the overall height an even number
+	}
+}
+@mixin graycity($gray: 1, $opacity: 1) {
+  opacity: $opacity;
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(grayscale=$gray)";
+  filter: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="grayscale"><feColorMatrix type="matrix"; values="0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0"/></filter></svg>#grayscale');
+  filter: gray($gray);
+  -webkit-filter: grayscale($gray * 100%);
+  //&:hover {
+    //opacity: 1;
+    //filter: none;
+    //-ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(grayscale=0)";
+    //-webkit-filter: grayscale(0);
+  //}
+}
+/* IMPORTS
+-------------------------------------------------- */ 
+@import "theme/variables"; 
+@import "bootstrap.3.0.2/bootstrap"; 
+@import "font-awesome-4.0.3/font-awesome"; 
+@import "theme/navbar";
+@import "theme/footer";
+@import "theme/form";
+@import "theme/thumbnail"; 
+@import "theme/home"; 
+@import "theme/portfolio";
+@import "theme/publication";
+@import "theme/supersized";
+
+/* FIX FOR IE DEVICE_WIDTH BUG
+-------------------------------------------------- */
+@-webkit-viewport{width:device-width}
+@-moz-viewport{width:device-width}
+@-ms-viewport{width:device-width}
+@-o-viewport{width:device-width}
+@viewport{width:device-width}
+
+/* PATCHES
+-------------------------------------------------- */
+
+// Color for the placeholder plugin
+.placeholder {
+  color: $input-color-placeholder;
+}
+
+// Gmap patches
+#map-canvas {
+  height: 400px;
+  img {
+    max-width: none;
+    vertical-align: middle;
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+  }
+}
+
+/* GLOBAL
+-------------------------------------------------- */
+// We do not want focus
+a:focus,
+.btn:focus {
+  outline: 0;
+}
+::selection {
+	background-color: $brand-primary;
+	color: #ffffff;
+}
+a {
+  @include transition(all 0.3s ease-in-out);
+}
+//#supersized > li > a > img,
+.grayscale {
+  @include graycity();
+}
+
+.row.full-width {
+  max-width: none;
+  [class^="col-xs-"],
+  [class*=" col-xs-"],
+  [class^="col-sm-"],
+  [class*=" col-sm-"],
+  [class^="col-md-"],
+  [class*=" col-md-"],
+  [class^="col-lg-"],
+  [class*=" col-lg-"] {
+    margin: 0;
+    padding: 0;
+  }
+}
+.btn-bordered {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 11px;
+  padding: 5px;
+  
+  .active,
+  &:hover {
+    text-decoration: none;
+  }
+}
+.btn-bordered-default {
+  border: 2px solid #333333;
+  color: #333333;
+  .active,
+  &:hover {
+    border-color: $brand-primary;
+    color: $brand-primary;
+  }
+}
+
+/* LAYOUT
+-------------------------------------------------- */
+html, body, #page-wrapper {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  @include box-sizing(border-box);
+}
+body {
+  font-weight: 300;
+}
+#page-wrapper {
+ display: none;
+}
+
+
+/* TYPE
+-------------------------------------------------- */
+.page-header h1 {
+  text-transform: uppercase;
+  font-weight: 300; 
+  letter-spacing: 4px;
+}
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+.copy-text {
+  ul { list-style: disc outside; margin-left: 30px; }
+  ol { margin-left: 30px; }
+    table {
+    @extend .table;
+  }
+  blockquote p {
+    font-size: $font-size-base;
+    font-style: italic;
+  }
+}
+
+
+#simple-page {
+  display: none;
+  background-color: $body-bg;
+  min-height: 100%;
+}
