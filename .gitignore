@@ -9,6 +9,7 @@ tmp/**/*
 public/gko/**/*
 public/.htaccess
 /public/system/*
+/public/uploads/*
 /coverage/
 /spec/tmp/*
 config/*.yml
