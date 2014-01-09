@@ -1,6 +1,6 @@
 <% if project -%>
 <article class="col-xs-6 col-sm-2 portfolio-post-item">
-  <%= link_to(project.public_url, :data => { :remote => true }) do %>
+  <%= link_to(project.public_url, :data => { :push => true, :target => "#project-content"}) do %>
     <div class="post-image">
       <%= image_tag(project.thumbnail.thumbnail("450x325#").url(), :alt => project.thumbnail.title, :class => "grayscale" ) if project.thumbnail %>
     </div>

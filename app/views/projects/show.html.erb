@@ -1,1 +1,40 @@
-<%= render "single_project" %>
+<!-- START PROJECT-PAGE -->
+<div id="project-page" class="modalpage">
+  <!-- START PROJECT-TOP-BAR -->
+  <div id="project-top-bar">
+    <div class="row">
+      <div class="col-xs-4">
+        <a id="previous-project" href="#" class="top-bar-btn pull-left"> 
+          <%= image_tag("cur_prev.gif", :class => "pull-left") %>
+          <span id="previous-project-name" class="pull-right hidden-xs">Title 2</span>
+        </a>
+      </div>
+      <div class="col-xs-4 text-center">
+        <a id="close-project" href="#" class="top-bar-btn">
+        <%= link_to(image_tag("cursor_close.gif"), root_url) %>
+        </a>
+      </div>
+      <div class="col-xs-4">
+        <a id="next-project" href="#" class="top-bar-btn pull-right">
+          <span id="next-project-name" class="pull-left hidden-xs">Title 4</span>
+          <%= image_tag("cur_next.gif", :class => "pull-right") %>
+        </a>
+      </div>
+    </div>
+  </div>	
+  <!-- END PROJECT-TOP-BAR -->
+  <!-- START PROJECT -->
+  <div id="project-content">
+    <%= render "single_project" %>
+  </div>
+  <!-- END PROJECT -->
+</div>
+<!-- END PROJECT-PAGE -->
+<% content_for :after_javascript_libraries do %> 
+<script type="text/javascript">
+	$(document).ready(function() {
+    $("#project-page").show(300);
+	});
+</script>
+<% end %>
+

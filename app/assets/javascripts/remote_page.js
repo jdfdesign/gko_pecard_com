@@ -29,8 +29,12 @@ var RemotePage = {
         console.log("_gaq disabled for _trackPageview" + url)
       }
 
-      RemotePage.content.html(eval(xhr)); 
-      history.pushState(null, null, url);
+      RemotePage.content.html(eval(xhr));
+      
+      if(Modernizr.history) {
+        history.pushState(null, null, url);
+      } 
+      
       try {
         FB.XFBML.parse();
       } catch (e) {
