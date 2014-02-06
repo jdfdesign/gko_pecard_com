@@ -5,16 +5,16 @@ var RemotePage = {
   currentItemOffset: undefined, 
 
   init: function() {
-    RemotePage.modal.hide();
+    $("#remote-page-modal").hide();
     $('.modal-link').attr('data-remote', true)
     .on("ajax:beforeSend", function(evt, xhr, settings) {
       var that = $(this); 
 
-      if(RemotePage.modal.is(':hidden')) {
+      if($("#remote-page-modal").is(':hidden')) {
 
       }
       else {
-        RemotePage.content.fadeOut(300);
+        $("#remote-page-modal-content").fadeOut(300);
       }
   		RemotePage.currentItemOffset = that.offset().top;
     })
@@ -29,7 +29,7 @@ var RemotePage = {
         console.log("_gaq disabled for _trackPageview" + url)
       }
 
-      RemotePage.content.html(eval(xhr));
+      $("#remote-page-modal-content").html(eval(xhr));
       
       if(Modernizr.history) {
         history.pushState(null, null, url);
@@ -40,14 +40,14 @@ var RemotePage = {
       } catch (e) {
         console.log("FB error");
       }
-      if(RemotePage.modal.is(':hidden')) {
-        RemotePage.page.fadeOut(750, function(){
-          RemotePage.modal.fadeIn(750);
+      if($("#remote-page-modal").is(':hidden')) {
+        $("#page-wrapper").fadeOut(750, function(){
+          $("#remote-page-modal").fadeIn(750);
           window.scrollTo(0, 0);
         });
       }
       else {
-        RemotePage.content.fadeIn(750);
+        $("#remote-page-modal-content").fadeIn(750);
       }
 
     })
@@ -62,8 +62,8 @@ var RemotePage = {
     /* Function to close modal */ 
     $("#close-remote-page-modal").on('click', function(){
       jQuery('iframe').attr('src', jQuery('iframe').attr('src')); // required to stop video's on exit project
-      RemotePage.modal.fadeOut(500, function(){
-        RemotePage.page.fadeIn(500);
+      $("#remote-page-modal").fadeOut(500, function(){
+        $("#page-wrapper").fadeIn(500);
         window.scrollTo(0, RemotePage.currentItemOffset - 75);
   		});
     });

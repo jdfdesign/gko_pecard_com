@@ -1,7 +1,4 @@
-//= require jquery
-//= require wiselinks
 //= require jquery_ujs
-//= require bootstrap
 //= require jquery.placeholder
 //= require jquery.easing
 //= require remote_form
@@ -323,35 +320,8 @@ jQuery(function($){
     THEME.placeholder();
     THEME.toolTip();
     THEME.map();
-    //Portfolio.init();
-    //RemotePage.init();
-    //window.wiselinks = new Wiselinks();
-    
+    Portfolio.init();
+    RemotePage.init();
   });
-  
-  $(document).off('page:done').on('page:done', function(target, status, url, data) {
-    console.log(target);
-    var project_modal = $("#project-page"),
-        page_wrapper = $("#page-wrapper");
-        
-    if(project_modal.is(':hidden')) {
-      page_wrapper.fadeOut(750, function(){
-        project_modal.fadeIn(750);
-        window.scrollTo(0, 0);
-      });
-    }
-    else {
-      $("#project-content").fadeIn(750);
-    }
-  });
-  
-  $(document).off('page:always').on('page:always', function(xhr, settings) {
-    console.log("Wiselinks page loading completed")
-  });
-  
-  $(document).off('page:loading').on('page:loading', function($target, render, url) {
-    console.log("Loading: " + url + " to " + $target.selector + " within " + render)
-  })
-
 
 }); 

@@ -25,5 +25,7 @@
   <%= csrf_meta_tags if site.authenticity_token_on_frontend -%>
 	<%= yield :head %>
 	<%= javascript_include_tag "modernizr-2.6.2-respond-1.1.0.min" %>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
   <%= render 'javascripts' %> 
 </head>

@@ -9,11 +9,11 @@ var Portfolio = {
   currentItemOffset: undefined, 
 
   init: function() {
-    Portfolio.container.hide();
+    $("#project-page").hide();
     $(Portfolio.itemTag + ' a[data-remote]').on("ajax:beforeSend", function(evt, xhr, settings) {
       var that = $(this); 
 
-      if(Portfolio.container.is(':hidden')) {
+      if($("#project-page").is(':hidden')) {
 
       }
       else {
@@ -43,7 +43,7 @@ var Portfolio = {
         console.log("_gaq disabled for _trackPageview" + url)
       }
 
-      Portfolio.content.html(eval(xhr)); 
+      $("#project-content").html(eval(xhr)); 
 
       $("#previous-project-name").text(Portfolio.previousItem.find(".post-title:first").text());
       $("#next-project-name").text(Portfolio.nextItem.find(".post-title:first").text());
@@ -53,14 +53,16 @@ var Portfolio = {
       } catch (e) {
         console.log("FB error");
       }
-      if(Portfolio.container.is(':hidden')) {
-        Portfolio.page.fadeOut(750, function(){
-          Portfolio.container.fadeIn(750);
+      
+      console.log($("#project-page").is(':hidden'))
+      if($("#project-page").is(':hidden')) {
+        $("#page-wrapper").fadeOut(750, function(){
+          $("#project-page").fadeIn(750);
           window.scrollTo(0, 0);
         });
       }
       else {
-        Portfolio.content.fadeIn(750);
+        $("#project-content").fadeIn(750);
       }
 
     })
@@ -88,8 +90,8 @@ var Portfolio = {
     /* Function to close project */ 
     $("#close-project").on('click', function(){
       jQuery('iframe').attr('src', jQuery('iframe').attr('src')); // required to stop video's on exit project
-      Portfolio.container.fadeOut(500, function(){
-        Portfolio.page.fadeIn(500);
+      $("#project-page").fadeOut(500, function(){
+        $("#page-wrapper").fadeIn(500);
         window.scrollTo(0, Portfolio.currentItemOffset - 75);
   		});
     });

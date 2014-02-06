@@ -7,7 +7,7 @@ group :assets do
 end
 
 group :production do
-  git "git@github.com:jdfdesign/gko_cms3.git", :tag => "v0.8.09.rc14" do
+  git "git@github.com:jdfdesign/gko_cms3.git", :tag => "v0.8.09.rc24" do
     gem 'gko_core'
     gem "gko_auth"
     gem "gko_documents"
@@ -27,5 +27,3 @@ end
 #  gem "gko_portfolio", :path => '~/Github/gko_cms3/gko_portfolio'
 #  gem "gko_image_bank", :path => '~/Github/gko_cms3/gko_image_bank'
 #end
-
-gem 'wiselinks'
