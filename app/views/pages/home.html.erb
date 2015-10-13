@@ -3,6 +3,7 @@
 <% team_page = current_site.sections.find_by_name("team") %>
 <% how_we_work_page = current_site.sections.find_by_name("how_we_work") %>
 <% publications_page = current_site.sections.find_by_name("publications") %>
+<% latest_projects = current_site.projects.latest(4) %>
 <% content_for :before_javascript_libraries do %>
   <% if homepage.images.any? %>
     <script type="text/javascript">
@@ -41,7 +42,7 @@
 </section>
 <section id="section-lastest-projects">
   <div class="row full-width lastest-projects-container">
-  <% current_site.projects.latest(4).each do |project| %>                           
+  <% latest_projects.each do |project| %>                           
     <article class="col-xs-6 col-sm-6 col-md-3 post-item portfolio-post-item">
       <%= link_to(project.public_url, :data => { :remote => true }) do %>
         <div class="post-image">
@@ -72,7 +73,7 @@
 </section> 
 <section id="section-archived-projects">
   <div class="row">
-    <%= render current_site.projects.live.order("position").limit(24) %>
+    <%= render current_site.projects.where("contents.id NOT IN (?)", latest_projects.map(&:id)).live.order("contents.position") %>
   </div>                  
 </section>
 </div>

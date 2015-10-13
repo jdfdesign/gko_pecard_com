@@ -505,4 +505,19 @@ ActiveRecord::Schema.define(:version => 20140911130925) do
   add_index "users", ["persistence_token"], :name => "index_users_on_persistence_token"
   add_index "users", ["site_id"], :name => "index_users_on_site_id"
 
+  create_table "videos", :force => true do |t|
+    t.string   "title"
+    t.string   "address",         :limit => 50
+    t.integer  "content_id"
+    t.string   "image_mime_type"
+    t.string   "image_name"
+    t.integer  "image_size"
+    t.integer  "image_width"
+    t.integer  "image_height"
+    t.string   "image_uid"
+    t.string   "image_ext"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
 end

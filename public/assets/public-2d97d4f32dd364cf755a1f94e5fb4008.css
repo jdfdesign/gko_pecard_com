@@ -3088,8 +3088,8 @@ input[type="button"].btn-block {
 
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url(/assets/twitter/glyphicons-halflings-regular.eot);
-  src: url(/assets/twitter/glyphicons-halflings-regular.eot?#iefix) format("embedded-opentype"), url(/assets/twitter/glyphicons-halflings-regular.woff) format("woff"), url(/assets/twitter/glyphicons-halflings-regular.ttf) format("truetype"), url(/assets/twitter/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format("svg");
+  src: url(/assets/twitter/glyphicons-halflings-regular-8a347d4801a369a2fef16dccd2daf70e.eot);
+  src: url(/assets/twitter/glyphicons-halflings-regular.eot?#iefix) format("embedded-opentype"), url(/assets/twitter/glyphicons-halflings-regular-eae7580a5c1cef17edcf08f1264f45c1.woff) format("woff"), url(/assets/twitter/glyphicons-halflings-regular-b506a4d2cb8260b8e4612d3e295ba6a3.ttf) format("truetype"), url(/assets/twitter/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format("svg");
 }
 
 /* line 21, ../../app/assets/stylesheets/bootstrap.3.0.2/_glyphicons.scss */
@@ -10054,7 +10054,7 @@ td.visible-print {
 
 /* line 73, ../../app/assets/stylesheets/theme/_footer.scss */
 .copyright-author {
-  background: transparent url(/assets/gko/logo_gecko_black.png) center left no-repeat;
+  background: transparent url(/assets/gko/logo_gecko_black-b151b8da1c787a3cf4878510fe137657.png) center left no-repeat;
   padding-left: 28px;
 }
 
@@ -10428,7 +10428,7 @@ span.valid {
   min-height: 260px;
   position: relative;
   color: #000;
-  cursor: url(/assets/cursor_more.gif) 38 38, url(/assets/cursor_more.cur) 38 38, pointer;
+  cursor: url(/assets/cursor_more-6c50d3ef4e8f84c8ecb2de29908666c5.gif) 38 38, url(/assets/cursor_more-05d4673a91722e4594cafc9368cc6350.cur) 38 38, pointer;
 }
 /* line 184, ../../app/assets/stylesheets/theme/_home.scss */
 .portfolio-post-item a .active, .portfolio-post-item a:hover {
@@ -10491,7 +10491,7 @@ span.valid {
   min-height: 0;
   position: relative;
   color: #000;
-  cursor: url(/assets/cursor_more.gif) 38 38, url(/assets/cursor_more.cur) 38 38, pointer;
+  cursor: url(/assets/cursor_more-6c50d3ef4e8f84c8ecb2de29908666c5.gif) 38 38, url(/assets/cursor_more-05d4673a91722e4594cafc9368cc6350.cur) 38 38, pointer;
 }
 /* line 232, ../../app/assets/stylesheets/theme/_home.scss */
 #section-archived-projects .col-xs-3 a .active, #section-archived-projects .col-xs-3 a:hover, #section-archived-projects .col-sm-2 a .active, #section-archived-projects .col-sm-2 a:hover {
@@ -10700,7 +10700,7 @@ img {
   height: 60px;
   margin: -30px 0 0 -30px;
   text-indent: -999em;
-  background: url(/assets/progress.gif) no-repeat center center;
+  background: url(/assets/progress-39e6d9c539c0538caef6dd107a9231fe.gif) no-repeat center center;
 }
 
 /* line 36, ../../app/assets/stylesheets/theme/_supersized.scss */
@@ -10772,7 +10772,7 @@ img {
 
 /* line 88, ../../app/assets/stylesheets/theme/_supersized.scss */
 #supersized li.image-loading {
-  background: #111111 url(/assets/progress.gif) no-repeat center center;
+  background: #111111 url(/assets/progress-39e6d9c539c0538caef6dd107a9231fe.gif) no-repeat center center;
   width: 100%;
   height: 100%;
 }
