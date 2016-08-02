@@ -5,7 +5,8 @@ group :assets do
   gem 'sass-rails', '= 3.2.6'
   gem 'uglifier', '= 2.4.0'
 end
-
+gem 'bcrypt', '= 3.1.10'
+gem 'mysql2', '= 0.3.20'
 group :production do
  git "git@github.com:jdfdesign/gko_cms3.git", :tag => "v0.8.31" do
    gem 'gko_core'

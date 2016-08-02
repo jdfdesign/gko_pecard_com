@@ -264,6 +264,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt (= 3.1.10)
   gko_auth!
   gko_categories!
   gko_core!
@@ -271,6 +272,7 @@ DEPENDENCIES
   gko_image_bank!
   gko_inquiries!
   gko_portfolio!
+  mysql2 (= 0.3.20)
   sass (= 3.2.14)
   sass-rails (= 3.2.6)
   uglifier (= 2.4.0)
