@@ -8,7 +8,7 @@ end
 gem 'bcrypt', '= 3.1.10'
 gem 'mysql2', '= 0.3.20'
 group :production do
- git "git@github.com:jdfdesign/gko_cms3.git", :tag => "v0.8.31" do
+ git "git@github.com:jdfdesign/gko_cms3.git", :tag => "v0.8.43" do
    gem 'gko_core'
    gem "gko_auth"
    gem "gko_documents"
