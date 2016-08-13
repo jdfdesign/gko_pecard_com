@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140911130925) do
+ActiveRecord::Schema.define(:version => 20160813160319) do
 
   create_table "assets", :force => true do |t|
     t.integer  "site_id"
@@ -240,6 +240,7 @@ ActiveRecord::Schema.define(:version => 20140911130925) do
     t.integer  "image_height"
     t.string   "image_uid"
     t.string   "video_url"
+    t.string   "author"
   end
 
   create_table "inquiries", :force => true do |t|
